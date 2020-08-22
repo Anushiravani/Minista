@@ -12,7 +12,7 @@ It has Almost everything that real Instagram has. Other features will be availab
 
 ## Donation
 Paypal: [Donate](https://www.paypal.me/rmt4006)
-ZarinPal [Fpr Iranian]: [Donate](https://zarinp.al/ramtin)
+ZarinPal [For Iranian]: [Donate](https://zarinp.al/ramtin)
 
 ## Open source libraries
 - [InstagramApiSharp](https://github.com/ramtinak/InstagramApiSharp/issues/243)

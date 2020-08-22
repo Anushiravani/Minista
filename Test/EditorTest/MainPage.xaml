@@ -1,0 +1,50 @@
+﻿<Page
+    x:Class="EditorTest.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EditorTest"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+      xmlns:controls="using:MinistaEditorStudio">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Text="Ramtinak@live.com"
+                       VerticalAlignment="Center"
+                       Margin="5"
+                       Foreground="#FF444444" />
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+
+                <Button Name="EditLocal"
+                        Tapped="EditLocal_Tapped"
+                        Margin="5"
+                        Content="Open"></Button>
+                <Grid Width="50" />
+                <Button Name="SaveBtn"
+                        HorizontalAlignment="Center"
+                        Margin="5"
+                        Content="Save"></Button>
+            </StackPanel>
+            <Rectangle Grid.Row="1"
+                       Height="1"
+                       Fill="Gray" />
+        </Grid>
+
+        <controls:EditorStudio x:Name="EditorStudio"
+                               HorizontalAlignment="Stretch"
+                               VerticalAlignment="Stretch"
+                               Grid.Row="1"
+                               EditorMode="Media"/>
+    </Grid>
+</Page>

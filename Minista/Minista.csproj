@@ -1,0 +1,1301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{8E409A1C-75D5-4FAB-B389-5D8F22AE0032}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Minista</RootNamespace>
+    <AssemblyName>Minista</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.18362.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.14393.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
+    <PackageCertificateKeyFile>
+    </PackageCertificateKeyFile>
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+    <AppxBundle>Never</AppxBundle>
+    <AppInstallerUpdateFrequency>0</AppInstallerUpdateFrequency>
+    <AppInstallerCheckForUpdateFrequency>OnApplicationRun</AppInstallerCheckForUpdateFrequency>
+    <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+    <GenerateTestArtifacts>True</GenerateTestArtifacts>
+    <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+    <PackageCertificateThumbprint>497A6EECFEE8071F9D9C57F58C170B2357A088E0</PackageCertificateThumbprint>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
+    <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM64'">
+    <OutputPath>bin\ARM64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SDKVERSION_16299;NETFX_CORE;WINDOWS_UWP;CODE_ANALYSIS</DefineConstants>
+    <NoWarn>;2008;0618;1605;0067;00168;MSB3277;MSB3277;NU1605;</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <Optimize>false</Optimize>
+    <UseDotNetNativeToolchain>false</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppCop.cs" />
+    <Compile Include="Classes\FrameHelper.cs" />
+    <Compile Include="A DeletedFiles\RuntimeSupportedSDKs.cs" />
+    <Compile Include="Classes\Helper.cs" />
+    <Compile Include="Classes\StorageUpload.cs" />
+    <Compile Include="ContentDialogs\AddPasscodeDialog.xaml.cs">
+      <DependentUpon>AddPasscodeDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentDialogs\FileAssociationDialog.xaml.cs">
+      <DependentUpon>FileAssociationDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentDialogs\InboxThreadsDialog.xaml.cs">
+      <DependentUpon>InboxThreadsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentDialogs\MediaUserTagDialog.xaml.cs">
+      <DependentUpon>MediaUserTagDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentDialogs\PasscodeDialog.xaml.cs">
+      <DependentUpon>PasscodeDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentDialogs\PasscodeSettingDialog.xaml.cs">
+      <DependentUpon>PasscodeSettingDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentDialogs\Uc\UserDialogUc.xaml.cs">
+      <DependentUpon>UserDialogUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\agv\AdaptiveGridViewOriginal.cs" />
+    <Compile Include="Controls\ChatRecordButton.cs" />
+    <Compile Include="Controls\GlyphToggleButton.cs" />
+    <Compile Include="Controls\LockControl.xaml.cs">
+      <DependentUpon>LockControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\DirectItemSendingMessageConverter.cs" />
+    <Compile Include="Converters\DirectItemWidthConverter.cs" />
+    <Compile Include="Converters\StoryViewerConverter.cs" />
+    <Compile Include="Converters\UserTagCarouselItemVisibilityConverter.cs" />
+    <Compile Include="CustomMTC\TVCustomMTC.cs" />
+    <Compile Include="Helpers\HyperLinkHelper.cs" />
+    <Compile Include="Helpers\MultiApiHelper.cs" />
+    <Compile Include="Helpers\PushHelper.cs" />
+    <Compile Include="Helpers\UriHelper.cs" />
+    <Compile Include="Helpers\VisualUtilities.cs" />
+    <Compile Include="ItemsGenerators\TVSearchItemsGenerator.cs" />
+    <Compile Include="ItemsGenerators\UserDetails\UserDetailsShopMediasGenerator.cs" />
+    <Compile Include="ItemsGenerators\UserDetails\UserDetailsTaggedMediasGenerator.cs" />
+    <Compile Include="ItemsGenerators\UserDetails\UserDetailsTVMediasGenerator.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Themes\MinistaTheme.cs" />
+    <Compile Include="UserControls\LoadingUc.xaml.cs">
+      <DependentUpon>LoadingUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Main\ActivityNotifyUc.xaml.cs">
+      <DependentUpon>ActivityNotifyUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Main\MediaTagUc.xaml.cs">
+      <DependentUpon>MediaTagUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Story\StoryViews\MainStoryViewerUc.xaml.cs">
+      <DependentUpon>MainStoryViewerUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Story\StoryViews\PollVotersViewModel.cs" />
+    <Compile Include="UserControls\Story\StoryViews\QuestionRespondersViewModel.cs" />
+    <Compile Include="UserControls\Story\StoryViews\QuizAnswerViewModel.cs" />
+    <Compile Include="UserControls\Story\StoryViews\SliderVotersViewModel.cs" />
+    <Compile Include="UserControls\Story\StoryViews\StoryViewerTemplateSelector.cs" />
+    <Compile Include="UserControls\Story\StoryViews\StoryViewerViewModel.cs" />
+    <Compile Include="ViewModels\Main\NonFollowersViewModel.cs" />
+    <Compile Include="ViewModels\Posts\UserDetails\ScrollableUserShopPostViewModel.cs" />
+    <Compile Include="ViewModels\Posts\UserDetails\ScrollableUserTaggedPostViewModel.cs" />
+    <Compile Include="ViewModels\TV\FooterViewModel.cs" />
+    <Compile Include="ViewModels\TV\TVMediaCommentsViewModel.cs" />
+    <Compile Include="ViewModels\TV\TVSearchViewModel.cs" />
+    <Compile Include="ViewModels\TV\TVViewModel.cs" />
+    <Compile Include="Views\BlankPage2.xaml.cs">
+      <DependentUpon>BlankPage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BlankPage3.xaml.cs">
+      <DependentUpon>BlankPage3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Direct\MainViewInboxUc.xaml.cs">
+      <DependentUpon>MainViewInboxUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Posts\EditPostView.xaml.cs">
+      <DependentUpon>EditPostView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Posts\UserDetails\ScrollableUserShopPostUc.xaml.cs">
+      <DependentUpon>ScrollableUserShopPostUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Posts\UserDetails\ScrollableUserTaggedPostUc.xaml.cs">
+      <DependentUpon>ScrollableUserTaggedPostUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Security\PasscodeView.xaml.cs">
+      <DependentUpon>PasscodeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\NotificationsView.xaml.cs">
+      <DependentUpon>NotificationsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\NotificationsViewModel.cs" />
+    <Compile Include="Views\Stories\StoryItemUc.xaml.cs">
+      <DependentUpon>StoryItemUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Stories\StoryViewX.xaml.cs">
+      <DependentUpon>StoryViewX.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Studio\Drawings\CropUI.cs" />
+    <Compile Include="Views\Studio\Drawings\DoodleUI.cs" />
+    <Compile Include="Views\Studio\Drawings\IDrawingUI.cs" />
+    <Compile Include="Views\Studio\Drawings\TagUI.cs" />
+    <Compile Include="Views\Studio\Drawings\WallPaperUI.cs" />
+    <Compile Include="Views\Studio\StudioView.xaml.cs">
+      <DependentUpon>StudioView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TV\FooterView.xaml.cs">
+      <DependentUpon>FooterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TV\TVMediaComments.xaml.cs">
+      <DependentUpon>TVMediaComments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TV\TVPlayer.xaml.cs">
+      <DependentUpon>TVPlayer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TV\TVSearchView.xaml.cs">
+      <DependentUpon>TVSearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TV\TVView.xaml.cs">
+      <DependentUpon>TVView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Uploads\AddLocationView.xaml.cs">
+      <DependentUpon>AddLocationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Uploads\AddLocationViewModel.cs" />
+    <Compile Include="Views\Uploads\Uploader.cs" />
+    <Compile Include="Views\Uploads\UploadStoryUc.xaml.cs">
+      <DependentUpon>UploadStoryUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Uploads\UploadStoryView.xaml.cs">
+      <DependentUpon>UploadStoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Uploads\UploadUc.xaml.cs">
+      <DependentUpon>UploadUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Uploads\UploadView.xaml.cs">
+      <DependentUpon>UploadView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Uploads\VideoConverterX.cs" />
+    <Content Include="..\Libs\FFmpeg\Windows10\$(PlatformTarget)\bin\*.dll" />
+    <Compile Include="Behaviors\PointersEvent.cs" />
+    <Compile Include="Classes\AppUploadHelper.cs" />
+    <Compile Include="Classes\Generator.cs" />
+    <Compile Include="A DeletedFiles\IncrementalLoadingBase.cs" />
+    <Compile Include="Classes\MinistaSettings.cs" />
+    <Compile Include="Classes\UserHelper.cs" />
+    <Compile Include="ContentDialogs\AddOrChooseUserDialog.xaml.cs">
+      <DependentUpon>AddOrChooseUserDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentDialogs\DeleteThreadDialog.xaml.cs">
+      <DependentUpon>DeleteThreadDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentDialogs\DirectDeleteAllMessageRequestsDialog.xaml.cs">
+      <DependentUpon>DirectDeleteAllMessageRequestsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentDialogs\DirectLeaveChatDialog.xaml.cs">
+      <DependentUpon>DirectLeaveChatDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentDialogs\DirectMessageLikersDialog.xaml.cs">
+      <DependentUpon>DirectMessageLikersDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentDialogs\EditProfileDialog.xaml.cs">
+      <DependentUpon>EditProfileDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentDialogs\EditProfileUc.xaml.cs">
+      <DependentUpon>EditProfileUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentDialogs\LogoutDialog.xaml.cs">
+      <DependentUpon>LogoutDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentDialogs\MediaDialog.xaml.cs">
+      <DependentUpon>MediaDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentDialogs\MuteDialog.xaml.cs">
+      <DependentUpon>MuteDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentDialogs\RemoveUserDialog.xaml.cs">
+      <DependentUpon>RemoveUserDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentDialogs\StoryMenuDialog.xaml.cs">
+      <DependentUpon>StoryMenuDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentDialogs\StoryQuestionDialog.xaml.cs">
+      <DependentUpon>StoryQuestionDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentDialogs\UnfollowHashtagDialog.xaml.cs">
+      <DependentUpon>UnfollowHashtagDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentDialogs\UnfollowUserDialog.xaml.cs">
+      <DependentUpon>UnfollowUserDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentDialogs\UserProfileMenusDialog.xaml.cs">
+      <DependentUpon>UserProfileMenusDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContentDialogs\UsersDialog.xaml.cs">
+      <DependentUpon>UsersDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="A DeletedFiles\AdaptiveGridView.cs" />
+    <Compile Include="Controls\CachedBitmap.cs" />
+    <Compile Include="Controls\CachedImage.xaml.cs">
+      <DependentUpon>CachedImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CachedImageItem.xaml.cs">
+      <DependentUpon>CachedImageItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ExpanderControl\ExpandDirection.cs" />
+    <Compile Include="Controls\ExpanderControl\Expander.Constants.cs" />
+    <Compile Include="Controls\ExpanderControl\Expander.cs" />
+    <Compile Include="Controls\ExpanderControl\Expander.Events.cs" />
+    <Compile Include="Controls\ExpanderControl\Expander.Properties.cs" />
+    <Compile Include="Controls\Extensions\MatrixExtensions.cs" />
+    <Compile Include="Controls\Extensions\MatrixHelperEx.cs" />
+    <Compile Include="Controls\Extensions\RotateTransformExtensions.cs" />
+    <Compile Include="Controls\Extensions\ScaleTransformExtensions.cs" />
+    <Compile Include="Controls\Extensions\SkewTransformExtensions.cs" />
+    <Compile Include="Controls\Extensions\TranslateTransformExtensions.cs" />
+    <Compile Include="Controls\LayoutTransformControl\LayoutTransformControl.cs" />
+    <Compile Include="Controls\LayoutTransformControl\LayoutTransformControl.Properties.cs" />
+    <Compile Include="Controls\LayoutTransformControl\PropertyChangeEventSource.cs" />
+    <Compile Include="Controls\ProgressVoice.cs" />
+    <Compile Include="A DeletedFiles\X\UGCropper.cs" />
+    <Compile Include="Controls\PhotoCropper\Helpers\WriteableBitmapExtensions.cs" />
+    <Compile Include="A DeletedFiles\PullToRefreshPanel.xaml.cs">
+      <DependentUpon>PullToRefreshPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="A DeletedFiles\RefreshProgressEventArgs.cs" />
+    <Compile Include="Controls\RunNew.cs" />
+    <Compile Include="Controls\StoryQuestionControl.cs" />
+    <Compile Include="Controls\XamlExtension.cs" />
+    <Compile Include="Converters\ActivityItemVisibilityConverter.cs" />
+    <Compile Include="Converters\AddHashtagToStringConverter.cs" />
+    <Compile Include="Converters\AspectRatioConverter.cs" />
+    <Compile Include="Converters\BestieConverter.cs" />
+    <Compile Include="Converters\BlockedDateTimeConverter.cs" />
+    <Compile Include="Converters\BooleanReverseToVisibiltyConverter.cs" />
+    <Compile Include="Converters\BoolToVisibiltyConverter.cs" />
+    <Compile Include="Converters\CaptionConverter.cs" />
+    <Compile Include="Converters\CarouselHeightConverter.cs" />
+    <Compile Include="Converters\CarouselImageConverter.cs" />
+    <Compile Include="Converters\ChildCommentsVisibilityConverter.cs" />
+    <Compile Include="Converters\CloseButtonToVisibilityConverter.cs" />
+    <Compile Include="Converters\CommentBooleanConverter.cs" />
+    <Compile Include="Converters\CommentColorConverter.cs" />
+    <Compile Include="Converters\CountConverter.cs" />
+    <Compile Include="Converters\DateTimeConverter.cs" />
+    <Compile Include="Converters\DirectItemHorizontalConverter.cs" />
+    <Compile Include="Converters\DirectItemUserConverter.cs" />
+    <Compile Include="Converters\DirectItemUserVisibilityConverter.cs" />
+    <Compile Include="Converters\DirectLinkImageConverter.cs" />
+    <Compile Include="Converters\DirectMediaShareConverter.cs" />
+    <Compile Include="Converters\DoubleToVisibilityConverter.cs" />
+    <Compile Include="Converters\DurationConverter.cs" />
+    <Compile Include="Converters\FollowConverter.cs" />
+    <Compile Include="Converters\FollowHashtagConverter.cs" />
+    <Compile Include="Converters\FollowingConverter.cs" />
+    <Compile Include="Converters\FollowingVisibilityConverter.cs" />
+    <Compile Include="Converters\IGTVIconToVisibilityConverter.cs" />
+    <Compile Include="Converters\ImageConverter.cs" />
+    <Compile Include="Converters\LikersConverter.cs" />
+    <Compile Include="Converters\MaterialHeartConverter.cs" />
+    <Compile Include="Converters\MediaTypeConverter.cs" />
+    <Compile Include="Converters\MediaTypeToIconConverter.cs" />
+    <Compile Include="Converters\NullableToVisibilityConverter.cs" />
+    <Compile Include="Converters\NumericToSeparatorConverter.cs" />
+    <Compile Include="Converters\NumericToVisibilityConverter.cs" />
+    <Compile Include="Converters\PostNameConverter.cs" />
+    <Compile Include="Converters\ReelShareConverter.cs" />
+    <Compile Include="Converters\RemoveFollowerVisibilityConverter.cs" />
+    <Compile Include="Converters\SeenColorConverter.cs" />
+    <Compile Include="Converters\StoryItemConverter.cs" />
+    <Compile Include="Converters\StoryShareTitleConverter.cs" />
+    <Compile Include="Converters\StringToUriConverter.cs" />
+    <Compile Include="Converters\StringToVisibiltyConverter.cs" />
+    <Compile Include="Converters\TagConverter.cs" />
+    <Compile Include="Converters\TextToMarkdownConverter.cs" />
+    <Compile Include="Converters\ThreadItemBackgroundColorConverter.cs" />
+    <Compile Include="Converters\TrimTextConverter.cs" />
+    <Compile Include="Converters\UserConverter.cs" />
+    <Compile Include="Converters\UsernameConverter.cs" />
+    <Compile Include="Converters\ViewersConverter.cs" />
+    <Compile Include="Converters\VisibilityConverters.cs" />
+    <Compile Include="Enums\UsersDialogCommand.cs" />
+    <Compile Include="Errors\ErrorMessages.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Helpers\HttpHelper.cs" />
+    <Compile Include="Helpers\ImageHelper.cs" />
+    <Compile Include="Helpers\Uploaders\ApiHelper.cs" />
+    <Compile Include="Helpers\ApplicationSettingsHelper.cs" />
+    <Compile Include="Helpers\AssetHelper.cs" />
+    <Compile Include="Helpers\AsyncHelper.cs" />
+    <Compile Include="Helpers\CompositionExtensions.cs" />
+    <Compile Include="Helpers\DeviceHelper.cs" />
+    <Compile Include="Helpers\DeviceUtil.cs" />
+    <Compile Include="Helpers\DownloadHelper.cs" />
+    <Compile Include="Helpers\ExtensionHelper.cs" />
+    <Compile Include="Helpers\GestureHelper.cs" />
+    <Compile Include="Helpers\NavigationService.cs" />
+    <Compile Include="Helpers\NotificationHelper.cs" />
+    <Compile Include="Helpers\PassageHelper.cs" />
+    <Compile Include="Helpers\PhotoHelper.cs" />
+    <Compile Include="Helpers\Uploaders\PhotoAlbumUploader.cs" />
+    <Compile Include="Helpers\Uploaders\PhotoUploaderHelper.cs" />
+    <Compile Include="Helpers\SessionHelper.cs" />
+    <Compile Include="Helpers\SettingsHelper.cs" />
+    <Compile Include="Helpers\SizeHelper.cs" />
+    <Compile Include="Helpers\Uploaders\StoryPhotoUploader.cs" />
+    <Compile Include="Helpers\Uploaders\VideoUploader.cs" />
+    <Compile Include="Helpers\Uploaders\VoiceUploader.cs" />
+    <Compile Include="Helpers\UserAgentHelper.cs" />
+    <Compile Include="Helpers\VisualTreeHelper.cs" />
+    <Compile Include="Helpers\WordsHelper.cs" />
+    <Compile Include="ItemsGenerators\ExploreClusterGenerator.cs" />
+    <Compile Include="ItemsGenerators\FollowersGenerator.cs" />
+    <Compile Include="ItemsGenerators\FollowingsGenerator.cs" />
+    <Compile Include="ItemsGenerators\Generators.cs" />
+    <Compile Include="ItemsGenerators\HashtagsRecentGenerator.cs" />
+    <Compile Include="ItemsGenerators\HashtagsTopGenerator.cs" />
+    <Compile Include="ItemsGenerators\IGenerator.cs" />
+    <Compile Include="ItemsGenerators\MutualFriendsGenerator.cs" />
+    <Compile Include="ItemsGenerators\UserDetails\UserDetailsMediasGenerator.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BaseCommand.cs" />
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\FileModel.cs" />
+    <Compile Include="Models\InstaCommentTV.cs" />
+    <Compile Include="Models\InstaUserShortTV.cs" />
+    <Compile Include="Models\Main\MediaFeeds.cs" />
+    <Compile Include="Models\Main\StoryModel.cs" />
+    <Compile Include="Models\RecentActivityFeed.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Selectors\FollowRequestsTemplateSelector.cs" />
+    <Compile Include="Selectors\MediaCarouselTemplateSelector.cs" />
+    <Compile Include="Selectors\MediaMainTemplateSelector.cs" />
+    <Compile Include="Selectors\MediaUserInfoTemplateSelector.cs" />
+    <Compile Include="Selectors\RecentActivityTemplateSelector.cs" />
+    <Compile Include="Selectors\ThreadItemTemplateSelector.cs" />
+    <Compile Include="Selectors\TopSearchTemplateSelector.cs" />
+    <Compile Include="SplashView.xaml.cs">
+      <DependentUpon>SplashView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Direct\DirectInboxUc.xaml.cs">
+      <DependentUpon>DirectInboxUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Direct\RecordDirectVoiceUc.xaml.cs">
+      <DependentUpon>RecordDirectVoiceUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Main\MediaMainUc.xaml.cs">
+      <DependentUpon>MediaMainUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Main\MediaMainX2Uc.xaml.cs">
+      <DependentUpon>MediaMainX2Uc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Main\StoryFeedItemUc.xaml.cs">
+      <DependentUpon>StoryFeedItemUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Main\StoryInnerUc.xaml.cs">
+      <DependentUpon>StoryInnerUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Other\MediaUploadingUc.xaml.cs">
+      <DependentUpon>MediaUploadingUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Story\StoryCountdownUc.xaml.cs">
+      <DependentUpon>StoryCountdownUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Story\StoryPollUc.xaml.cs">
+      <DependentUpon>StoryPollUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Story\StoryQuizUc.xaml.cs">
+      <DependentUpon>StoryQuizUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Story\StorySliderUc.xaml.cs">
+      <DependentUpon>StorySliderUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\VoicePlayerUc.xaml.cs">
+      <DependentUpon>VoicePlayerUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Direct\DirectRequestsThreadViewModel.cs" />
+    <Compile Include="ViewModels\Direct\DirectRequestsViewModel.cs" />
+    <Compile Include="ViewModels\Direct\InboxViewModel.cs" />
+    <Compile Include="ViewModels\Direct\ThreadViewModel.cs" />
+    <Compile Include="ViewModels\Infos\ArchiveViewModel.cs" />
+    <Compile Include="ViewModels\Infos\BlockedViewModel.cs" />
+    <Compile Include="ViewModels\Infos\CloseFriendsViewModel.cs" />
+    <Compile Include="ViewModels\Infos\FollowRequestsViewModel.cs" />
+    <Compile Include="ViewModels\Infos\FollowViewModel.cs" />
+    <Compile Include="ViewModels\Infos\HashtagViewModel.cs" />
+    <Compile Include="ViewModels\Infos\LikedPostViewModel.cs" />
+    <Compile Include="ViewModels\Infos\ProfileDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Infos\RecentFollowersViewModel.cs" />
+    <Compile Include="ViewModels\Infos\SavedPostsViewModel.cs" />
+    <Compile Include="ViewModels\Infos\TaggedYouViewModel.cs" />
+    <Compile Include="ViewModels\Infos\UserDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Main\ActivitiesViewModel.cs" />
+    <Compile Include="ViewModels\Main\ExploreViewModel.cs" />
+    <Compile Include="ViewModels\Main\LikersViewModel.cs" />
+    <Compile Include="ViewModels\Main\MainViewModel.cs" />
+    <Compile Include="ViewModels\Posts\CommentsViewModel.cs" />
+    <Compile Include="ViewModels\Posts\MultiplePostViewModel.cs" />
+    <Compile Include="ViewModels\Posts\ScrollableExplorePostViewModel.cs" />
+    <Compile Include="ViewModels\Posts\ScrollableHashtagPostViewModel.cs" />
+    <Compile Include="ViewModels\Posts\ScrollableUserPostViewModel.cs" />
+    <Compile Include="ViewModels\Searches\SearchViewModel.cs" />
+    <Compile Include="ViewModels\Sign\SignInVM.cs" />
+    <Compile Include="Views\BlankPage1.xaml.cs">
+      <DependentUpon>BlankPage1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Direct\DirectRequestsThreadView.xaml.cs">
+      <DependentUpon>DirectRequestsThreadView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Direct\DirectRequestsView.xaml.cs">
+      <DependentUpon>DirectRequestsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Direct\InboxView.xaml.cs">
+      <DependentUpon>InboxView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Direct\RavenMediaView.xaml.cs">
+      <DependentUpon>RavenMediaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Direct\ThreadView.xaml.cs">
+      <DependentUpon>ThreadView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Infos\ArchiveView.xaml.cs">
+      <DependentUpon>ArchiveView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Infos\BlockedView.xaml.cs">
+      <DependentUpon>BlockedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Infos\CloseFriendsView.xaml.cs">
+      <DependentUpon>CloseFriendsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Infos\FollowRequestsView.xaml.cs">
+      <DependentUpon>FollowRequestsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Infos\FollowView.xaml.cs">
+      <DependentUpon>FollowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Infos\HashtagView.xaml.cs">
+      <DependentUpon>HashtagView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Infos\ImageVideoView.xaml.cs">
+      <DependentUpon>ImageVideoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Infos\LikedPostView.xaml.cs">
+      <DependentUpon>LikedPostView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Infos\ProfileDetailsView.xaml.cs">
+      <DependentUpon>ProfileDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Infos\RecentFollowersView.xaml.cs">
+      <DependentUpon>RecentFollowersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Infos\SavedPostsView.xaml.cs">
+      <DependentUpon>SavedPostsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Infos\TaggedYouView.xaml.cs">
+      <DependentUpon>TaggedYouView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Infos\UserDetailsView.xaml.cs">
+      <DependentUpon>UserDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\ActivitiesView.xaml.cs">
+      <DependentUpon>ActivitiesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\ExploreClusterView.xaml.cs">
+      <DependentUpon>ExploreClusterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\ExploreView.xaml.cs">
+      <DependentUpon>ExploreView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MediaConverter\VideoConverter.cs" />
+    <Compile Include="Views\Posts\LikersView.xaml.cs">
+      <DependentUpon>LikersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Main\StoryView.xaml.cs">
+      <DependentUpon>StoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Posts\CommentView.xaml.cs">
+      <DependentUpon>CommentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Posts\MultiplePostView.xaml.cs">
+      <DependentUpon>MultiplePostView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Posts\ScrollableArchivePostUc.xaml.cs">
+      <DependentUpon>ScrollableArchivePostUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Posts\ScrollableExplorePostUc.xaml.cs">
+      <DependentUpon>ScrollableExplorePostUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Posts\ScrollableHashtagPostUc.xaml.cs">
+      <DependentUpon>ScrollableHashtagPostUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Posts\ScrollableLikedPostUc.xaml.cs">
+      <DependentUpon>ScrollableLikedPostUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Posts\ScrollableRecentHashtagPostUc.xaml.cs">
+      <DependentUpon>ScrollableRecentHashtagPostUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Posts\ScrollableSavedPostUc.xaml.cs">
+      <DependentUpon>ScrollableSavedPostUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Posts\ScrollableTaggedPostUc.xaml.cs">
+      <DependentUpon>ScrollableTaggedPostUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Posts\UserDetails\ScrollableUserPostUc.xaml.cs">
+      <DependentUpon>ScrollableUserPostUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Posts\Trash\ScrollableExplorePostView.xaml.cs">
+      <DependentUpon>ScrollableExplorePostView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Posts\Trash\ScrollableHashtagPostView.xaml.cs">
+      <DependentUpon>ScrollableHashtagPostView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Posts\Trash\ScrollableUserPostView.xaml.cs">
+      <DependentUpon>ScrollableUserPostView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Posts\SinglePostView.xaml.cs">
+      <DependentUpon>SinglePostView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Posts\UploadPostView.xaml.cs">
+      <DependentUpon>UploadPostView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Posts\UploadStoryView.xaml.cs">
+      <DependentUpon>UploadStoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Searches\SearchView.xaml.cs">
+      <DependentUpon>SearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sign\RecoverView.xaml.cs">
+      <DependentUpon>RecoverView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sign\SignInView.xaml.cs">
+      <DependentUpon>SignInView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <Content Include="Assets\Images\512.png" />
+    <Content Include="Assets\girl_black_river_pose_model_babe_mood_blonde_2560x1600.jpg" />
+    <Content Include="Assets\Images\no-profile.jpg" />
+    <Content Include="Assets\Images\transparent-img.png" />
+    <Content Include="Assets\Logos\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\Logos\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Logos\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Logos\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Logos\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\Logos\StoreLogo.png" />
+    <Content Include="Assets\Logos\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\Logos\Wide310x150Logo.scale-400.png" />
+    <Content Include="Assets\ministablue.png" />
+    <Content Include="Assets\Shabnam.ttf" />
+    <Content Include="Assets\Vazir.ttf" />
+    <Content Include="Assets\IRANSans.ttf" />
+    <Content Include="Assets\segmdl2.ttf" />
+    <Content Include="Assets\MaterialIconsfont.ttf" />
+    <Content Include="Assets\LottieAssets\love.zip" />
+    <Content Include="Assets\LottieAssets\checkmark.json" />
+    <Content Include="Assets\LottieAssets\dislike.json" />
+    <Content Include="Assets\LottieAssets\dislike2.json" />
+    <Content Include="Assets\LottieAssets\hearts.json" />
+    <Content Include="Assets\LottieAssets\heart.json" />
+    <Content Include="Assets\minista font.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Minista_TemporaryKey.pfx" />
+    <None Include="Package.StoreAssociation.xml" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="ContentDialogs\AddOrChooseUserDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContentDialogs\AddPasscodeDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContentDialogs\DeleteThreadDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContentDialogs\DirectDeleteAllMessageRequestsDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContentDialogs\DirectLeaveChatDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContentDialogs\DirectMessageLikersDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContentDialogs\EditProfileDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContentDialogs\EditProfileUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContentDialogs\FileAssociationDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContentDialogs\InboxThreadsDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContentDialogs\LogoutDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContentDialogs\MediaDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContentDialogs\MediaUserTagDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContentDialogs\MuteDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContentDialogs\PasscodeDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContentDialogs\PasscodeSettingDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContentDialogs\RemoveUserDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContentDialogs\StoryMenuDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContentDialogs\StoryQuestionDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContentDialogs\Uc\UserDialogUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContentDialogs\UnfollowHashtagDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContentDialogs\UnfollowUserDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContentDialogs\UserProfileMenusDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContentDialogs\UsersDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\CachedImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\CachedImageItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\LockControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="A DeletedFiles\PullToRefreshPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ResourceDictionaries\ExternalStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourceDictionaries\Fonts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SplashView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Direct\DirectInboxUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Direct\RecordDirectVoiceUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\LoadingUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Main\ActivityNotifyUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Main\MediaMainUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Main\MediaMainX2Uc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Main\MediaTagUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Main\StoryFeedItemUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Main\StoryInnerUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Other\MediaUploadingUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Story\StoryCountdownUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Story\StoryPollUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Story\StoryQuizUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Story\StorySliderUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Story\StoryViews\MainStoryViewerUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\VoicePlayerUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BlankPage1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BlankPage2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BlankPage3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Direct\DirectRequestsThreadView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Direct\DirectRequestsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Direct\InboxView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Direct\MainViewInboxUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Direct\RavenMediaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Direct\ThreadView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Infos\ArchiveView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Infos\BlockedView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Infos\CloseFriendsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Infos\FollowRequestsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Infos\FollowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Infos\HashtagView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Infos\ImageVideoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Infos\LikedPostView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Infos\ProfileDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Infos\RecentFollowersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Infos\SavedPostsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Infos\TaggedYouView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Infos\UserDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\ActivitiesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\ExploreClusterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\ExploreView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Posts\EditPostView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Posts\LikersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Main\StoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Posts\CommentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Posts\MultiplePostView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Posts\ScrollableArchivePostUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Posts\ScrollableExplorePostUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Posts\ScrollableHashtagPostUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Posts\ScrollableLikedPostUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Posts\ScrollableRecentHashtagPostUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Posts\ScrollableSavedPostUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Posts\ScrollableTaggedPostUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Posts\UserDetails\ScrollableUserPostUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Posts\UserDetails\ScrollableUserShopPostUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Posts\UserDetails\ScrollableUserTaggedPostUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Posts\Trash\ScrollableExplorePostView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Posts\Trash\ScrollableHashtagPostView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Posts\Trash\ScrollableUserPostView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Posts\SinglePostView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Posts\UploadPostView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Posts\UploadStoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Searches\SearchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Security\PasscodeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\NotificationsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Settings\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Sign\RecoverView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Sign\SignInView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Stories\StoryItemUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Stories\StoryViewX.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Studio\StudioView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TV\FooterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TV\TVMediaComments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TV\TVPlayer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TV\TVSearchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TV\TVView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Uploads\AddLocationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Uploads\UploadStoryUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Uploads\UploadStoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Uploads\UploadUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Uploads\UploadView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Iconic.Zlib.NetstandardUwp">
+      <Version>1.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="LumiaImagingSDK.UWP">
+      <Version>3.0.593</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.8</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp">
+      <Version>2.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications">
+      <Version>2.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI">
+      <Version>2.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Animations">
+      <Version>2.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
+      <Version>2.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.UI.Xaml">
+      <Version>2.1.190606001</Version>
+    </PackageReference>
+    <PackageReference Include="NETStandard.Library">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>10.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="System.Threading.Tasks.Extensions">
+      <Version>4.5.4</Version>
+    </PackageReference>
+    <PackageReference Include="System.ValueTuple">
+      <Version>4.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="Telerik.UI.for.UniversalWindowsPlatform">
+      <Version>1.0.1.6</Version>
+    </PackageReference>
+    <PackageReference Include="VLC.MediaElement">
+      <Version>3.1.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Win2D.uwp">
+      <Version>1.25.0</Version>
+    </PackageReference>
+    <PackageReference Include="XamlAnimatedGif">
+      <Version>1.2.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Minista\InstagramApiSharp\InstagramApiSharp.csproj">
+      <Project>{d7d254a4-843e-4e23-9513-ac89eb163168}</Project>
+      <Name>InstagramApiSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libs\Base\Base.csproj">
+      <Project>{c668bae7-96d4-4384-895f-d36feb0f80f8}</Project>
+      <Name>Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libs\FFmpegInterop\FFmpegInterop.vcxproj">
+      <Project>{9cfa3b3e-b7af-4629-84e2-c962c5b046b1}</Project>
+      <Name>FFmpegInterop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libs\MinistaBH\MinistaBH.csproj">
+      <Project>{269f6b10-9ff6-4d33-a1e6-fa01f16149bf}</Project>
+      <Name>MinistaBH</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libs\MinistaControls\MinistaControls.csproj">
+      <Project>{2cf9a0e1-57a9-49ae-a85c-01b8fad36e2f}</Project>
+      <Name>MinistaControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libs\MinistaEditorStudio\MinistaEditorStudio.csproj">
+      <Project>{1e1e859d-90d3-4701-8858-068ce7f97c62}</Project>
+      <Name>MinistaEditorStudio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libs\MinistaHelper\MinistaHelper.csproj">
+      <Project>{dde1b1f8-9a89-4255-97ea-36b9fab20f7e}</Project>
+      <Name>MinistaHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libs\NotificationHandler\NotificationHandler.csproj">
+      <Project>{12867326-B54E-45F1-AFA1-BE3FBE6D4679}</Project>
+      <Name>NotificationHandler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libs\Thrift\Thrift.csproj">
+      <Project>{7f8cefc7-31ba-4be6-9f8f-ff2f687f9faf}</Project>
+      <Name>Thrift</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libs\UICompositionAnimations\UICompositionAnimations.csproj">
+      <Project>{d92746c3-045e-44f8-90ce-0451edb2d40e}</Project>
+      <Name>UICompositionAnimations</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="Microsoft.Services.Store.Engagement, Version=10.0">
+      <Name>Microsoft Engagement Framework</Name>
+    </SDKReference>
+    <SDKReference Include="WindowsMobile, Version=10.0.18362.0">
+      <Name>Windows Mobile Extensions for the UWP</Name>
+    </SDKReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

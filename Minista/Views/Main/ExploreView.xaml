@@ -1,0 +1,500 @@
+﻿<Page
+    x:Class="Minista.Views.Main.ExploreView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Minista"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:converters="using:Minista.Converters"
+      xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+      xmlns:selector="using:Minista.Selectors"
+      xmlns:vm="using:Minista.ViewModels.Main"
+      xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+      xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+      xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
+      xmlns:searches="using:Minista.Views.Searches"
+      xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+      xmlns:loading="using:Minista.UserControls"
+      xmlns:posts="using:Minista.Views.Posts"
+      mc:Ignorable="d"
+      xmlns:pr="using:Minista.Controls"
+      NavigationCacheMode="Enabled"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="GridViewItemContainerStyle"
+                   TargetType="GridViewItem">
+                <Setter Property="HorizontalContentAlignment"
+                        Value="Stretch" />
+                <Setter Property="HorizontalAlignment"
+                        Value="Stretch" />
+                <Setter Property="VerticalContentAlignment"
+                        Value="Stretch" />
+                <Setter Property="VerticalAlignment"
+                        Value="Stretch" />
+                <Setter Property="Margin"
+                        Value="1" />
+                <Setter Property="Padding"
+                        Value="0" />
+            </Style>
+            <Style TargetType="ListViewItem">
+                <Setter Property="VerticalContentAlignment"
+                        Value="Center" />
+                <Setter Property="HorizontalContentAlignment"
+                        Value="Center" />
+                <Setter Property="Margin"
+                        Value="1" />
+                <Setter Property="Padding"
+                        Value="0" />
+            </Style>
+            <converters:FollowingConverter x:Key="FollowingConverter" />
+            <converters:FollowingVisibilityConverter x:Key="FollowingVisibilityConverter" />
+            <converters:DateTimeConverter x:Key="DateTimeConverter" />
+            <converters:BooleanToVisibiltyConverter x:Key="BooleanToVisibiltyConverter" />
+            <converters:NullableToVisibilityConverter x:Key="NullableToVisibilityConverter" />
+            <converters:UserConverter x:Key="UserConverter" />
+            <converters:TagConverter x:Key="TagConverter" />
+            <converters:FollowHashtagConverter x:Key="FollowHashtagConverter" />
+            <converters:ActivityItemVisibilityConverter x:Key="ActivityItemVisibilityConverter" />
+            <converters:CountConverter x:Key="CountConverter" />
+            <converters:MediaTypeToIconConverter x:Key="MediaTypeToIconConverter" />
+            <converters:MediaTypeToVisibiltyConverter x:Key="MediaTypeToVisibiltyConverter" />
+            <converters:IGTVIconToVisibilityConverter x:Key="IGTVIconToVisibilityConverter" />
+
+            <DataTemplate x:Key="ImageTemplate">
+                <Grid CornerRadius="5"
+                      MinHeight="100"
+                      MinWidth="100">
+                    <!--<Grid.Background>
+                        <ImageBrush>
+                            <ImageBrush.ImageSource>
+                                <BitmapImage UriSource="{Binding Images[0].Uri, Mode=OneWay}" />
+                            </ImageBrush.ImageSource>
+                        </ImageBrush>
+                    </Grid.Background>-->
+                    <controls:ImageEx VerticalAlignment="Center"
+                                      HorizontalAlignment="Center"
+                                      Stretch="UniformToFill"
+                                      MinHeight="100"
+                                      MinWidth="100">
+                        <controls:ImageEx.Source>
+                            <BitmapImage UriSource="{Binding Images[1].Uri, Mode=OneWay}" />
+                        </controls:ImageEx.Source>
+                    </controls:ImageEx>
+
+
+                    <controls:DropShadowPanel BlurRadius="4.0"
+                                              ShadowOpacity="0.80"
+                                              OffsetX="7.0"
+                                              OffsetY="7.0"
+                                              Color="Black"
+                                              HorizontalAlignment="Right"
+                                              VerticalAlignment="Top"
+                                              Margin="10"
+                                              Visibility="{Binding Mode=OneWay,Converter={StaticResource MediaTypeToVisibiltyConverter}}">
+                        <!--MediaType-->
+                        <TextBlock Text="{Binding Mode=OneWay,Converter={StaticResource MediaTypeToIconConverter}}"
+                                   FontFamily="{StaticResource SymbolFont}"
+                                   FontSize="{StaticResource DefaultFontSize}"
+                                   Margin="5"
+                                   Foreground="White"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   TextWrapping="NoWrap"
+                                   TextAlignment="Center" />
+                    </controls:DropShadowPanel>
+                    <controls:DropShadowPanel BlurRadius="4.0"
+                                              ShadowOpacity="0.80"
+                                              OffsetX="7.0"
+                                              OffsetY="7.0"
+                                              Color="Black"
+                                              HorizontalAlignment="Right"
+                                              VerticalAlignment="Top"
+                                              Margin="10"
+                                              Visibility="{Binding Mode=OneWay, Converter={StaticResource IGTVIconToVisibilityConverter}}">
+                        <FontIcon FontSize="{StaticResource BigFontSize}"
+                                  FontFamily="{StaticResource MaterialSymbolFont}"
+                                  Foreground="White"
+                                  Glyph="" />
+                        <!--Glyph=""-->
+                    </controls:DropShadowPanel>
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="CarouselTemplate">
+                <Grid CornerRadius="5"
+                      MinHeight="100"
+                      MinWidth="100">
+                    <!--<Grid.Background>
+                        <ImageBrush>
+                            <ImageBrush.ImageSource>
+                                <BitmapImage UriSource="{Binding Carousel[0].Images[0].Uri, Mode=TwoWay}" />
+                            </ImageBrush.ImageSource>
+                        </ImageBrush>
+                    </Grid.Background>-->
+                    <controls:ImageEx VerticalAlignment="Center"
+                                      HorizontalAlignment="Center"
+                                      Stretch="UniformToFill"
+                                      MinHeight="120"
+                                      MinWidth="120">
+                        <controls:ImageEx.Source>
+                            <BitmapImage UriSource="{Binding Carousel[0].Images[1].Uri, Mode=OneWay}" />
+                        </controls:ImageEx.Source>
+                    </controls:ImageEx>
+                    <controls:DropShadowPanel BlurRadius="4.0"
+                                              ShadowOpacity="0.80"
+                                              OffsetX="7.0"
+                                              OffsetY="7.0"
+                                              Color="Black"
+                                              HorizontalAlignment="Right"
+                                              VerticalAlignment="Top"
+                                              Margin="10"
+                                              Visibility="{Binding MediaType, Mode=OneWay,Converter={StaticResource MediaTypeToVisibiltyConverter}}">
+                        <TextBlock Text="{Binding MediaType, Mode=OneWay,Converter={StaticResource MediaTypeToIconConverter}}"
+                                   FontFamily="{StaticResource SymbolFont}"
+                                   FontSize="{StaticResource DefaultFontSize}"
+                                   Margin="5"
+                                   Foreground="White"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   TextWrapping="NoWrap"
+                                   TextAlignment="Center" />
+                    </controls:DropShadowPanel>
+
+                </Grid>
+            </DataTemplate>
+            <selector:MediaUserInfoTemplateSelector x:Key="MediaHashtagInfoTemplateSelector"
+                                                    ImageTemplate="{StaticResource ImageTemplate}"
+                                                    CarouselTemplate="{StaticResource CarouselTemplate}" />
+
+        </ResourceDictionary>
+    </Page.Resources>
+    <Page.DataContext>
+        <vm:ExploreViewModel x:Name="ExploreVM" x:FieldModifier="public"/>
+    </Page.DataContext>
+    <Grid Background="{StaticResource DefaultBackgroundColor}">
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>-->
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <loading:LoadingUc x:Name="TopLoading"
+                               Visibility="Collapsed"
+                               VerticalAlignment="Top" />
+
+            <Grid Grid.Row="1">
+                
+            <winui:RefreshContainer x:Name="RefreshControl">
+
+                    <local:AdaptiveGridViewOriginal Margin="2"
+                                        x:Name="LVItemsLV"
+                                                    ItemHeight="136"
+                                                    DesiredWidth="136"
+                                        SelectionMode="None"
+                                        ItemClick="LVItemClick"
+                                        Loaded="LVItemsLVLoaded"
+                                        IsItemClickEnabled="True"
+                                        ItemsSource="{Binding ExploreGenerator.Items, Mode=OneWay}"
+                                        ItemTemplateSelector="{StaticResource MediaHashtagInfoTemplateSelector}"
+                                        ContainerContentChanging="LVContainerContentChanging"
+                                        ItemContainerStyle="{StaticResource GridViewItemContainerStyle}">
+                        <local:AdaptiveGridViewOriginal.ItemContainerTransitions>
+                        <TransitionCollection>
+                            <EntranceThemeTransition />
+                        </TransitionCollection>
+                    </local:AdaptiveGridViewOriginal.ItemContainerTransitions>
+
+                        <local:AdaptiveGridViewOriginal.Header>
+                        <controls:ScrollHeader Mode="QuickReturn">
+                            <Grid x:Name="HeaderGrid"
+                                  MinHeight="65"
+                                  VerticalAlignment="Top">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid Grid.RowSpan="2">
+                                    <interactivity:Interaction.Behaviors>
+                                        <behaviors:Blur x:Name="BlurBehavior"
+                                                        Value="25"
+                                                        Duration="0"
+                                                        Delay="0"
+                                                        AutomaticallyStart="True" />
+                                    </interactivity:Interaction.Behaviors>
+                                </Grid>
+                                <Grid x:Name="SearchButtonGrid"
+                                      HorizontalAlignment="Stretch"
+                                      Height="45"
+                                      Margin="5"
+                                      ToolTipService.ToolTip="Search">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <!--Foreground="{StaticResource DefaultForegroundColor}"-->
+                                    <TextBlock Foreground="White"
+                                               Text=""
+                                               Margin="15 10"
+                                               HorizontalAlignment="Left"
+                                               VerticalAlignment="Center"
+                                               FontFamily="{StaticResource MaterialSymbolFont}"
+                                               FontSize="{StaticResource BigFontSize}" />
+                                    <TextBlock Foreground="White"
+                                               Text="Search"
+                                               Margin="15 10"
+                                               Grid.Column="1"
+                                               HorizontalAlignment="Left"
+                                               VerticalAlignment="Center"
+                                               FontFamily="{StaticResource VazirFont}"
+                                               FontSize="{StaticResource DefaultFontSize}" />
+                                    <Grid Background="AliceBlue"
+                                          Grid.ColumnSpan="2"
+                                          Tapped="SearchButtonGridTapped"
+                                          Opacity="0" />
+                                </Grid>
+                                <ListView x:Name="LVClusters"
+                                          SelectionMode="None"
+                                          Foreground="White"
+                                          Grid.Row="1"
+                                          Margin="5"
+                                          ItemsSource="{Binding ExploreGenerator.Clusters, Mode=OneWay}"
+                                          ScrollViewer.HorizontalScrollMode="Enabled"
+                                          ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                                          ScrollViewer.VerticalScrollMode="Disabled"
+                                          ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                                          IsItemClickEnabled="True"
+                                          ItemClick="LVClustersItemClick">
+                                    <ListView.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <ItemsStackPanel Orientation="Horizontal" />
+                                        </ItemsPanelTemplate>
+                                    </ListView.ItemsPanel>
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <!--<Grid VerticalAlignment="Center"
+                              HorizontalAlignment="Center"
+                              CornerRadius="8"
+                              Background="#FF1C1C1C"
+                              BorderBrush="#FF252525"
+                              BorderThickness="1">
+                            <TextBlock FontFamily="{StaticResource VazirFont}"
+                                       FontSize="{StaticResource DefaultFontSize}"
+                                       Foreground="#FFA8A8A8"
+                                       Margin="8"
+                                       Text="{Binding Name}" />
+                            <Grid Background="AntiqueWhite"
+                                  Opacity="0"
+                                  Tapped="ClusterGridTapped" />
+                        </Grid>-->
+                                            <Grid CornerRadius="8"
+                                                  BorderThickness="0">
+                                                <TextBlock FontFamily="{StaticResource VazirFont}"
+                                                           FontSize="{StaticResource DefaultFontSize}"
+                                                           Foreground="White"
+                                                           Margin="8"
+                                                           Text="{Binding Name}" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+
+                                </ListView>
+                            </Grid>
+
+                        </controls:ScrollHeader>
+
+                    </local:AdaptiveGridViewOriginal.Header>
+                </local:AdaptiveGridViewOriginal>
+            </winui:RefreshContainer>
+                <Button x:Name="RefreshButton"
+                        Background="{x:Null}"
+                        Grid.RowSpan="2"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Left"
+                        Margin="12 0 0 50"
+                        Click="RefreshButtonClick">
+                    <Grid>
+
+                        <Ellipse Width="45"
+                                 Height="45"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Fill="#FF333333" />
+                        <FontIcon FontFamily="{StaticResource SymbolFont}"
+                                  FontSize="{StaticResource HeaderFontSize}"
+                                  Foreground="White"
+                                  Glyph="" />
+                        <Grid Background="Cyan"
+                              Opacity="0" />
+                    </Grid>
+                </Button>
+
+
+            </Grid>
+            <!--<controls:PullToRefreshListView x:Name="LVItemsLV"
+                                        Grid.Row="1"
+                                        Foreground="{StaticResource DefaultInnerForegroundColor}"
+                                        SelectionMode="None"
+                                        Margin="0"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        IsItemClickEnabled="False"
+                                        PullThreshold="140"
+                                        IsPullToRefreshWithMouseEnabled="True"
+                                        RefreshRequested="LVItemsLVRefreshRequested"
+                                        Loaded="LVItemsLVLoaded">
+            <controls:PullToRefreshListView.Header>
+                <controls:ScrollHeader Mode="QuickReturn">
+                    <Grid x:Name="HeaderGrid"
+                          MinHeight="65"
+                          VerticalAlignment="Top">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.RowSpan="2">
+                            <interactivity:Interaction.Behaviors>
+                                <behaviors:Blur x:Name="BlurBehavior"
+                                                Value="25"
+                                                Duration="0"
+                                                Delay="0"
+                                                AutomaticallyStart="True" />
+                            </interactivity:Interaction.Behaviors>
+                        </Grid>
+                        <Grid x:Name="SearchButtonGrid"
+                              HorizontalAlignment="Stretch"
+                              Height="45"
+                              Margin="5"
+                              ToolTipService.ToolTip="Search">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            --><!--Foreground="{StaticResource DefaultForegroundColor}"--><!--
+                            <TextBlock Foreground="White"
+                                       Text=""
+                                       Margin="15 10"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       FontFamily="{StaticResource MaterialSymbolFont}"
+                                       FontSize="{StaticResource BigFontSize}" />
+                            <TextBlock Foreground="White"
+                                       Text="Search"
+                                       Margin="15 10"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       FontFamily="{StaticResource VazirFont}"
+                                       FontSize="{StaticResource DefaultFontSize}" />
+                            <Grid Background="AliceBlue"
+                                  Grid.ColumnSpan="2"
+                                  Tapped="SearchButtonGridTapped"
+                                  Opacity="0" />
+                        </Grid>
+                        <ListView x:Name="LVClusters"
+                                  SelectionMode="None"
+                                  Foreground="White"
+                                  Grid.Row="1"
+                                  Margin="5"
+                                  ItemsSource="{Binding ExploreGenerator.Clusters, Mode=OneWay}"
+                                  ScrollViewer.HorizontalScrollMode="Enabled"
+                                  ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                                  ScrollViewer.VerticalScrollMode="Disabled"
+                                  ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                                  IsItemClickEnabled="True"
+                                  ItemClick="LVClustersItemClick">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <ItemsStackPanel Orientation="Horizontal" />
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    --><!--<Grid VerticalAlignment="Center"
+                              HorizontalAlignment="Center"
+                              CornerRadius="8"
+                              Background="#FF1C1C1C"
+                              BorderBrush="#FF252525"
+                              BorderThickness="1">
+                            <TextBlock FontFamily="{StaticResource VazirFont}"
+                                       FontSize="{StaticResource DefaultFontSize}"
+                                       Foreground="#FFA8A8A8"
+                                       Margin="8"
+                                       Text="{Binding Name}" />
+                            <Grid Background="AntiqueWhite"
+                                  Opacity="0"
+                                  Tapped="ClusterGridTapped" />
+                        </Grid>--><!--
+                                    <Grid CornerRadius="8"
+                                          BorderThickness="0">
+                                        <TextBlock FontFamily="{StaticResource VazirFont}"
+                                                   FontSize="{StaticResource DefaultFontSize}"
+                                                   Foreground="White"
+                                                   Margin="8"
+                                                   Text="{Binding Name}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+
+                        </ListView>
+                    </Grid>
+
+                </controls:ScrollHeader>
+            </controls:PullToRefreshListView.Header>
+
+            <controls:PullToRefreshListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="VerticalContentAlignment"
+                            Value="Stretch" />
+                    <Setter Property="HorizontalContentAlignment"
+                            Value="Stretch" />
+                    <Setter Property="Margin"
+                            Value="1" />
+                    <Setter Property="Padding"
+                            Value="0" />
+                </Style>
+            </controls:PullToRefreshListView.ItemContainerStyle>
+
+
+            <local:AdaptiveGridView Margin="2"
+                                    MinItemHeight="136"
+                                    MinItemWidth="136"
+                                    SelectionMode="None"
+                                    ItemClick="LVItemClick"
+                                    IsItemClickEnabled="True"
+                                    ItemsSource="{Binding ExploreGenerator.Items, Mode=OneWay}"
+                                    ItemTemplateSelector="{StaticResource MediaHashtagInfoTemplateSelector}"
+                                    ContainerContentChanging="LVContainerContentChanging"
+                                    ItemContainerStyle="{StaticResource GridViewItemContainerStyle}">
+                <local:AdaptiveGridView.ItemContainerTransitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition />
+                    </TransitionCollection>
+                </local:AdaptiveGridView.ItemContainerTransitions>
+            </local:AdaptiveGridView>
+
+        </controls:PullToRefreshListView>-->
+            <loading:LoadingUc x:Name="BottomLoading"
+                               Visibility="Collapsed"
+                               VerticalAlignment="Bottom"
+                               Grid.Row="2" />
+        </Grid>
+        <searches:SearchView x:Name="SearchView"
+                             x:FieldModifier="public"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             Grid.RowSpan="4"
+                             Visibility="Collapsed"/>
+        <posts:ScrollableExplorePostUc x:Name="ScrollableExplorePostUc"
+                                         x:FieldModifier="public"
+                                         HorizontalAlignment="Stretch"
+                                         VerticalAlignment="Stretch"
+                                         Grid.RowSpan="4"
+                                         Visibility="Collapsed" />
+    </Grid>
+</Page>

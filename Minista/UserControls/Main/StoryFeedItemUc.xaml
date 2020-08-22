@@ -1,0 +1,85 @@
+﻿<UserControl
+    x:Class="Minista.UserControls.Main.StoryFeedItemUc"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Minista.UserControls.Main"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+       xmlns:interactivity="using:Microsoft.Xaml.Interactivity"  
+    xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:converters="using:Minista.Converters"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <converters:MediaImageVisibilityConverter x:Key="MediaImageVisibilityConverter"/>
+            <converters:MediaVideoVisibilityConverter x:Key="MediaVideoVisibilityConverter"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Background="{StaticResource DefaultBackgroundColor}">
+        <Image x:Name="BackgroundImage" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="UniformToFill"
+               Source="{Binding Images[0].Uri,Mode=OneWay}">
+            <!--<interactivity:Interaction.Behaviors>
+                <behaviors:Blur x:Name="blur" Value="5"/> -->
+            <!--Duration="1" Delay="0" AutomaticallyStart="True"-->
+            <!--
+            </interactivity:Interaction.Behaviors>-->
+        </Image>
+        <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="#2D000000"/>
+        <controls:DropShadowPanel Visibility="{Binding MediaType, Mode=OneWay, Converter={StaticResource MediaImageVisibilityConverter}}" BlurRadius="9.0"
+                                                              ShadowOpacity="0.70"
+                                                              OffsetX="5.0"
+                                                              OffsetY="5.0"
+                                                              Color="Black"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center" 
+                                               Grid.Row="1">
+
+
+
+            <!--Source="{Binding Images[0].Uri,Mode=OneWay}"-->
+            <!--<Image x:Name="Image" 
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center" 
+                   MinWidth="350"
+                   Stretch="Fill"
+                   MaxWidth="480" 
+                   ImageFailed="Image_ImageFailed" ImageOpened="Image_ImageOpened"/>-->
+            <controls:ImageEx x:Name="Image"
+                              x:FieldModifier="public"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              MinWidth="350"
+                              MaxWidth="480"
+                              Stretch="Uniform"
+                              ImageExFailed="Image_ImageExFailed"
+                              ImageExOpened="Image_ImageExOpened"/>
+        </controls:DropShadowPanel>
+        <controls:DropShadowPanel Visibility="{Binding MediaType, Mode=OneWay, Converter={StaticResource MediaVideoVisibilityConverter}}" BlurRadius="9.0"
+                                                              ShadowOpacity="0.70"
+                                                              OffsetX="5.0"
+                                                              OffsetY="5.0"
+                                                              Color="Black"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center" 
+                                               Grid.Row="1">
+            <MediaElement x:Name="MediaElement" 
+                          x:FieldModifier="public"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                          AreTransportControlsEnabled="False"
+                          Stretch="Uniform"
+                      MinWidth="350"
+                          MaxWidth="480"
+                      AutoPlay="False" 
+                      PosterSource="{Binding Images[0].Uri,Mode=OneWay}"/>
+            <!--Source="{Binding Videos[0].Uri, Mode=OneWay}"-->
+        </controls:DropShadowPanel>
+
+
+        <!--<Grid x:Name="StorySuffItems" />-->
+    </Grid>
+</UserControl>

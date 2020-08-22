@@ -1,0 +1,92 @@
+﻿<ContentDialog
+    x:Class="Minista.ContentDialogs.MuteDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Minista.ContentDialogs"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Background="{x:Null}" BorderBrush="Transparent" BorderThickness="0">
+
+    <Border CornerRadius="5">
+        <Grid Background="#E51B1B1B"
+              CornerRadius="5"
+              Width="250"
+              BorderBrush="{StaticResource DefaultBackgroundColor}"
+              BorderThickness=".8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="MuteUser"
+                       FontFamily="{StaticResource VazirFont}"
+                       FontSize="{StaticResource DefaultFontSize}"
+                       Foreground="{StaticResource DefaultForegroundColor}"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center" />
+            <Rectangle Grid.Row="1"
+                       Height=".8"
+                       Fill="#FF303030"
+                       Margin="5" />
+            <TextBlock FontFamily="{StaticResource VazirFont}"
+                       Grid.Row="2"
+                       FontSize="{StaticResource TinyFontSize}"
+                       Foreground="{StaticResource DefaultForegroundColor}"
+                       Margin="5"
+                       Text="You can unmute them from their profile. Instagam won't let them know you muted them."
+                       TextWrapping="Wrap"
+                       TextAlignment="Center"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center" />
+            <Grid Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Rectangle  Height=".8"
+                            Fill="#FF303030"
+                            Margin="0 3" />
+
+                <Button x:Name="MutePostsButton"
+                        Content="Mute Posts"
+                        HorizontalAlignment="Stretch"
+                        Background="Transparent"
+                        Foreground="#FFFF7474"
+                        Margin="0 4"
+                        Grid.Row="1"
+                        Click="MutePostsButtonClick" />
+                <Rectangle Grid.Row="2"
+                           Height=".8"
+                           Fill="#FF303030"
+                           Margin="0 3" />
+
+                <Button x:Name="MutePostsAndStoryButton"
+                        Content="Mute Posts and Story"
+                        Background="Transparent"
+                        Foreground="#FFFF7474"
+                        HorizontalAlignment="Stretch"
+                        Margin="0 4"
+                        Grid.Row="3"
+                        Click="MutePostsAndStoryButtonClick" />
+                <Rectangle Grid.Row="4"
+                           Height=".8"
+                           Fill="#FF303030"
+                           Margin="0 3" />
+
+                <Button x:Name="CancelButton"
+                        Content="Cancel"
+                        Background="Transparent"
+                        Foreground="{StaticResource DefaultForegroundColor}"
+                        HorizontalAlignment="Stretch"
+                        Margin="0 4"
+                        Grid.Row="5"
+                        Click="CancelButtonClick" />
+            </Grid>
+        </Grid>
+    </Border>
+</ContentDialog>

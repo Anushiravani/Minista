@@ -1,0 +1,115 @@
+﻿<ContentDialog
+    x:Class="Minista.ContentDialogs.DirectMessageLikersDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Minista.ContentDialogs"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               mc:Ignorable="d"
+               Background="{x:Null}"
+               BorderBrush="Transparent"
+               BorderThickness="0">
+
+    <Grid Background="#E51B1B1B"
+          BorderBrush="{StaticResource DefaultBackgroundColor}"
+          MaxHeight="330"
+          MaxWidth="380"
+          CornerRadius="5"
+          BorderThickness=".8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Foreground="{StaticResource DefaultForegroundColor}"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       FontFamily="{StaticResource VazirFont}"
+                       FontSize="{StaticResource DefaultFontSize}"
+                       TextWrapping="Wrap"
+                       Margin="6 10"
+                       TextAlignment="Center"
+                       Text="Liked by" />
+            <ToggleButton x:Name="DoneToggleButton"
+                          Style="{StaticResource HeaderToggleButtonRemovedIconStyle}"
+                          Background="Transparent"
+                          Foreground="{StaticResource DefaultForegroundColor}"
+                          Content="Done"
+                          Height="42"
+                          Width="62"
+                          HorizontalContentAlignment="Center"
+                          Grid.Column="1"
+                          FontSize="{StaticResource DefaultFontSize}"
+                          FontFamily="{StaticResource VazirFont}"
+                          Margin="5 0 0 0"
+                          Click="DoneToggleButtonClick" />
+        </Grid>
+
+        <Rectangle Grid.Row="1"
+                   Grid.ColumnSpan="4"
+                   Height=".8"
+                   Fill="#FF303030"
+                   Margin="5 2 5 0" />
+        <ListView x:Name="LVMenu"
+                  Grid.Row="2"
+                  VerticalAlignment="Stretch"
+                  SelectionMode="None"
+                  IsItemClickEnabled="True"
+                  ItemClick="LVMenuItemClick">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment"
+                            Value="Stretch" />
+                    <Setter Property="VerticalContentAlignment"
+                            Value="Stretch" />
+                    <Setter Property="HorizontalAlignment"
+                            Value="Stretch" />
+                    <Setter Property="VerticalAlignment"
+                            Value="Stretch" />
+                    <Setter Property="Margin"
+                            Value="0" />
+                    <Setter Property="Padding"
+                            Value="2" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Height="65"
+                          Margin="5 0 5 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="3" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Ellipse Grid.Column="0"
+                                 Height="50"
+                                 Width="50"
+                                 VerticalAlignment="Center"
+                                 HorizontalAlignment="Center"
+                                 StrokeThickness="0">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="{Binding ProfilePicture}" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+
+                        <TextBlock Foreground="{StaticResource DefaultForegroundColor}"
+                                   Grid.Column="2"
+                                   HorizontalAlignment="Left"
+                                  VerticalAlignment="Center"
+                                   FontFamily="{StaticResource VazirFont}"
+                                   FontSize="{StaticResource DefaultFontSize}"
+                                   Text="{Binding UserName}"
+                                   Margin="5 3" />
+                    </Grid>
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentDialog>

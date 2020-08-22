@@ -1,0 +1,635 @@
+﻿<Page
+    x:Class="Minista.Views.Settings.SettingsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Minista.Views.Settings"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    xmlns:uiControls="using:Minista.UI.Controls">
+    <Page.Resources>
+        <SolidColorBrush Color="#FF282828"
+                         x:Key="SystemControlForegroundChromeLowBrush" />
+
+    </Page.Resources>
+    <!--Background="{StaticResource DefaultBackgroundColor}"-->
+    <Grid Background="{StaticResource DefaultBackgroundColor}">
+        <ScrollViewer>
+            <StackPanel Margin="5">
+                <uiControls:Expander x:Name="Expander1"
+                                     Margin="0,0,0,10"
+                                     HorizontalContentAlignment="Stretch"
+                                     IsExpanded="True"
+                                     Background="#FF282828"
+                                     ExpandDirection="Down"
+                                     Header="Application">
+                    <StackPanel Margin="5 8 5 5">
+                        <Grid Margin="0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock TextWrapping="Wrap"
+                                       Text="Menu position"
+                                       Margin="6 4"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       FontSize="{StaticResource DefaultFontSize}"
+                                       FontFamily="{StaticResource VazirFont}" />
+                            <ComboBox x:Name="comboAppMenu"
+                                      Margin="4"
+                                      Grid.Column="1"
+                                      Width="160"
+                                      BorderThickness=".8"
+                                      Background="Transparent"
+                                      FontSize="{StaticResource DefaultFontSize}"
+                                      FontFamily="{StaticResource VazirFont}"
+                                      SelectionChanged="ComboAppMenuSelectionChanged">
+                                <ComboBoxItem Content="Top"
+                                              FontSize="{StaticResource DefaultFontSize}"
+                                              FontFamily="{StaticResource VazirFont}" />
+
+                                <ComboBoxItem Content="Bottom"
+                                              FontSize="{StaticResource DefaultFontSize}"
+                                              FontFamily="{StaticResource VazirFont}" />
+                            </ComboBox>
+                        </Grid>
+                        <Rectangle Fill="#FF363636"
+                                   Height="1.5"
+                                   Margin="15 2.5"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch" />
+                        <StackPanel>
+                            <Grid Margin="0 5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock TextWrapping="Wrap"
+                                           Text="Ghost mode"
+                                           Margin="6 4"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Left"
+                                           FontSize="{StaticResource DefaultFontSize}"
+                                           FontFamily="{StaticResource VazirFont}" />
+                                <ToggleSwitch x:Name="toggleGhostMode"
+                                              HorizontalAlignment="Right"
+                                              Grid.Column="1"
+                                              Toggled="ToggleGhostModeToggled" />
+                            </Grid>
+                            <TextBlock TextWrapping="Wrap"
+                                       Text="See stories and read direct message without sending seen requests."
+                                       Margin="8 2 4 2"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       FontSize="{StaticResource TinyFontSize}"
+                                       FontFamily="{StaticResource VazirFont}"
+                                       Foreground="#FFCBCBCB" />
+
+                        </StackPanel>
+                        <Rectangle Fill="#FF363636"
+                                   Height="1.5"
+                                   Margin="15 2.5"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch" />
+                        <Grid Margin="0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock TextWrapping="Wrap"
+                                       Text="Element sound"
+                                       Margin="6 4"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       FontSize="{StaticResource DefaultFontSize}"
+                                       FontFamily="{StaticResource VazirFont}" />
+                            <ToggleSwitch x:Name="toggleElementSound"
+                                          HorizontalAlignment="Right"
+                                          Grid.Column="1"
+                                          Toggled="ToggleElementSoundToggled" />
+                        </Grid>
+                        <Rectangle Fill="#FF363636"
+                                   Height="1.5"
+                                   Margin="15 2.5"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch" />
+
+                        <StackPanel>
+                            <Grid Margin="0 5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock TextWrapping="Wrap"
+                                           Text="Remove ads"
+                                           Margin="6 4"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Left"
+                                           FontSize="{StaticResource DefaultFontSize}"
+                                           FontFamily="{StaticResource VazirFont}" />
+                                <ToggleSwitch x:Name="toggleRemoveAds"
+                                              HorizontalAlignment="Right"
+                                              Grid.Column="1"
+                                              Toggled="ToggleRemoveAdsToggled" />
+                            </Grid>
+                            <TextBlock TextWrapping="Wrap"
+                                       Text="Removing ads is experimental and limited to the posts only."
+                                       Margin="8 2 4 2"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       FontSize="{StaticResource TinyFontSize}"
+                                       FontFamily="{StaticResource VazirFont}"
+                                       Foreground="#FFCBCBCB" />
+
+                        </StackPanel>
+                        <Rectangle Fill="#FF363636"
+                                   Height="1.5"
+                                   Margin="15 2.5"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch" />
+                        <Grid Margin="0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="txtCache" TextWrapping="Wrap"
+                                       Text="Cache Size"
+                                       Margin="6 4"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       FontSize="{StaticResource DefaultFontSize}"
+                                       FontFamily="{StaticResource VazirFont}" />
+                            <ToggleButton x:Name="toggleClearCache"
+                                          HorizontalAlignment="Stretch"
+                                          VerticalAlignment="Stretch"
+                                          Content="Clear"
+                                          Width="70"
+                                          Margin="0 0 45 0"
+                                          Grid.Column="1"
+                                          Click="ToggleClearCacheClick"/>
+                        </Grid>
+
+                        <StackPanel>
+                            <Grid Margin="0 5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock TextWrapping="Wrap"
+                                           Text="Saved location"
+                                           Margin="6 4"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Left"
+                                           FontSize="{StaticResource DefaultFontSize}"
+                                           FontFamily="{StaticResource VazirFont}" />
+                                <ToggleButton x:Name="toggleChangeLocation"
+                                              HorizontalAlignment="Stretch"
+                                              VerticalAlignment="Stretch"
+                                              Content="Change"
+                                              Width="70"
+                                              Margin="0 0 45 0"
+                                              Grid.Column="1"
+                                              Click="ToggleChangeLocationClick" />
+
+                            </Grid>
+                            <TextBlock x:Name="txtLocation" TextWrapping="Wrap"
+                                       Text=""
+                                       Margin="8 2 4 2"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       FontSize="{StaticResource TinyFontSize}"
+                                       FontFamily="{StaticResource VazirFont}"
+                                       Foreground="#FFCBCBCB" />
+                        </StackPanel>
+
+
+                        <Rectangle Fill="#FF363636"
+                                   Height="1.5"
+                                   Margin="15 2.5"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch" />
+                        <ToggleButton x:Name="AddPassLockToggleButton"
+                                      Content="Passcode lock"
+                                      Style="{StaticResource HeaderToggleButtonWithoutIconStyle}"
+                                      Background="Transparent"
+                                      Tag=""
+                                      FontSize="{StaticResource DefaultFontSize}"
+                                      FontFamily="{StaticResource VazirFont}"
+                                      Margin="4 0"
+                                      Click="AddPassLockToggleButtonClick" />
+                    </StackPanel>
+
+                </uiControls:Expander>
+                <uiControls:Expander x:Name="Expander2"
+                                     Margin="0,0,0,10"
+                                     HorizontalContentAlignment="Stretch"
+                                     IsExpanded="True"
+                                     Background="#FF282828"
+                                     ExpandDirection="Down"
+                                     Header="Privacy">
+                    <StackPanel Margin="5 8 5 5">
+                        <StackPanel HorizontalAlignment="Left" Margin="0 2">
+                            <TextBlock TextWrapping="Wrap"
+                                       Text="Connections"
+                                       Margin="4 0"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       FontSize="{StaticResource HeaderFontSize}"
+                                       FontFamily="{StaticResource VazirFont}"
+                                       Foreground="#FFBFBFBF" />
+
+                            <Rectangle Fill="#FF363636"
+                                       Height="1.5"
+                                       Margin="10 2.5"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch" />
+                        </StackPanel>
+                        <StackPanel>
+                            <Grid Margin="0 5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <FontIcon x:Name="Arrow"
+                                          Margin="8"
+                                          FontFamily="{StaticResource MaterialSymbolFont}"
+                                          FontSize="{StaticResource BigFontSize}"
+                                          Glyph=""
+                                          RenderTransformOrigin="0.5,0.5">
+                                    <FontIcon.RenderTransform>
+                                        <RotateTransform />
+                                    </FontIcon.RenderTransform>
+                                </FontIcon>
+                                <TextBlock TextWrapping="Wrap"
+                                           Text="Private Account"
+                                           Grid.Column="1"
+                                           Margin="6 4"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Left"
+                                           FontSize="{StaticResource DefaultFontSize}"
+                                           FontFamily="{StaticResource VazirFont}" />
+                                <ToggleSwitch x:Name="togglePrivateAccount"
+                                              HorizontalAlignment="Right"
+                                              Grid.Column="2"
+                                              Toggled="TogglePrivateAccountToggled" />
+                            </Grid>
+                            <TextBlock TextWrapping="Wrap"
+                                       Text="When your account is private, only people you approve can see your photos and videos. Your exisiting followers won't be affected."
+                                       Margin="8 2 4 2"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       FontSize="{StaticResource TinyFontSize}"
+                                       FontFamily="{StaticResource VazirFont}"
+                                       Foreground="#FFCBCBCB" />
+                        </StackPanel>
+                        <Rectangle Fill="#FF363636"
+                                   Height="1.5"
+                                   Margin="15 2.5"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch" />
+
+                        <ToggleButton x:Name="BlockedAccountToggleButton"
+                                      Content="Blocked Accounts"
+                                      Style="{StaticResource HeaderToggleButtonWithoutIconStyle}"
+                                      Background="Transparent"
+                                      Tag=""
+                                      FontSize="{StaticResource DefaultFontSize}"
+                                      FontFamily="{StaticResource VazirFont}"
+                                      Margin="4 0"
+                                      Click="BlockedAccountToggleButtonClick" />
+                        
+                        <Rectangle Fill="#FF363636"
+                                   Height="1.5"
+                                   Margin="15 2.5"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch" />
+
+                        <ToggleButton x:Name="CloseFriendsToggleButton"
+                                      Content="Close Friends"
+                                      Style="{StaticResource HeaderToggleButtonWithoutIconStyle}"
+                                      Background="Transparent"
+                                      Tag="ﴁ"
+                                      FontSize="{StaticResource DefaultFontSize}"
+                                      FontFamily="{StaticResource VazirFont}"
+                                      Margin="4 0"
+                                      Click="CloseFriendsToggleButtonClick" />
+                        <!---->
+                        <Rectangle Fill="#FF363636"
+                                   Height="1.5"
+                                   Margin="15 2.5"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch" />
+
+
+
+                    </StackPanel>
+
+                </uiControls:Expander>
+
+                <uiControls:Expander x:Name="AccountExpander"
+                                     Margin="0,0,0,10"
+                                     HorizontalContentAlignment="Stretch"
+                                     IsExpanded="True"
+                                     Background="#FF282828"
+                                     ExpandDirection="Down"
+                                     Header="Account">
+                    <StackPanel Margin="5 8 5 5">
+                        <ToggleButton x:Name="NotificationsToggleButton"
+                                      Content="Notifications"
+                                      Style="{StaticResource HeaderToggleButtonWithoutIconStyle}"
+                                      Background="Transparent"
+                                      Tag="ﴵ"
+                                      FontSize="{StaticResource DefaultFontSize}"
+                                      FontFamily="{StaticResource VazirFont}"
+                                      Margin="4 0"
+                                      Click="NotificationsToggleButtonClick" />
+                        <Rectangle Fill="#FF363636"
+                                   Height="1.5"
+                                   Margin="15 2.5"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch" />
+                        <ToggleButton x:Name="SavedToggleButton"
+                                      Content="Saved"
+                                      Style="{StaticResource HeaderToggleButtonWithoutIconStyle}"
+                                      Background="Transparent"
+                                      Tag=""
+                                      FontSize="{StaticResource DefaultFontSize}"
+                                      FontFamily="{StaticResource VazirFont}"
+                                      Margin="4 0"
+                                      Click="SavedToggleButtonClick" />
+
+                        <Rectangle Fill="#FF363636"
+                                   Height="1.5"
+                                   Margin="15 2.5"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch" />
+                        <ToggleButton x:Name="ArchiveToggleButton"
+                                      Content="Archive"
+                                      Style="{StaticResource HeaderToggleButtonWithoutIconStyle}"
+                                      Background="Transparent"
+                                      Tag=""
+                                      FontSize="{StaticResource DefaultFontSize}"
+                                      FontFamily="{StaticResource VazirFont}"
+                                      Margin="4 0"
+                                      Click="ArchiveToggleButtonClick" />
+
+                        <Rectangle Fill="#FF363636"
+                                   Height="1.5"
+                                   Margin="15 2.5"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch" />
+                        <ToggleButton x:Name="TaggedYouToggleButton"
+                                      Content="Tagged you"
+                                      Style="{StaticResource HeaderToggleButtonWithoutIconStyle}"
+                                      Background="Transparent"
+                                      Tag=""
+                                      FontSize="{StaticResource DefaultFontSize}"
+                                      FontFamily="{StaticResource VazirFont}"
+                                      Margin="4 0"
+                                      Click="TaggedYouToggleButtonClick" />
+
+                        <Rectangle Fill="#FF363636"
+                                   Height="1.5"
+                                   Margin="15 2.5"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch" />
+                        <ToggleButton x:Name="LikedPostsToggleButton"
+                                      Content="Posts you've liked"
+                                      Style="{StaticResource HeaderToggleButtonWithoutIconStyle}"
+                                      Background="Transparent"
+                                      Tag=""
+                                      FontSize="{StaticResource DefaultFontSize}"
+                                      FontFamily="{StaticResource VazirFont}"
+                                      Margin="4 0"
+                                      Click="LikedPostsToggleButtonClick" />
+
+                        <Rectangle Fill="#FF363636"
+                                   Height="1.5"
+                                   Margin="15 2.5"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch" />
+
+                    </StackPanel>
+                </uiControls:Expander>
+
+                <uiControls:Expander x:Name="LoginExpander"
+                                     Margin="0,0,0,10"
+                                     HorizontalContentAlignment="Stretch"
+                                     IsExpanded="True"
+                                     Background="#FF282828"
+                                     ExpandDirection="Down"
+                                     Header="Logins">
+                    <StackPanel Margin="5 8 5 5">
+                        <ToggleButton x:Name="AllAccountsToggleButton"
+                                      Content="See All Logged in Accounts"
+                                      Style="{StaticResource HeaderToggleButtonWithoutIconStyle}"
+                                      Background="Transparent"
+                                      Tag=""
+                                      FontSize="{StaticResource DefaultFontSize}"
+                                      FontFamily="{StaticResource VazirFont}"
+                                      Margin="4 0"
+                                      Click="AllAccountsToggleButtonClick" />
+                        <ToggleButton x:Name="AddAccountToggleButton"
+                                      ToolTipService.ToolTip="Add or change user"
+                                      Content="Add Account"
+                                      Style="{StaticResource HeaderToggleButtonWithoutIconStyle}"
+                                      Background="Transparent"
+                                      Tag=""
+                                      FontSize="{StaticResource DefaultFontSize}"
+                                      FontFamily="{StaticResource VazirFont}"
+                                      Margin="4 0"
+                                      Click="AddAccountToggleButtonClick" />
+                        <ToggleButton x:Name="LogoutToggleButton"
+                                      Content="Log out current Account"
+                                      Style="{StaticResource HeaderToggleButtonWithoutIconStyle}"
+                                      Background="Transparent"
+                                      Tag=""
+                                      FontSize="{StaticResource DefaultFontSize}"
+                                      FontFamily="{StaticResource VazirFont}"
+                                      Margin="4 0"
+                                      Click="LogoutToggleButtonClick" />
+                    </StackPanel>
+                </uiControls:Expander>
+                <uiControls:Expander x:Name="AboutExpander"
+                                     Margin="0,0,0,10"
+                                     HorizontalContentAlignment="Stretch"
+                                     IsExpanded="True"
+                                     Background="#FF282828"
+                                     ExpandDirection="Down"
+                                     Header="About/Credit">
+                    <StackPanel Margin="5 8 5 5">
+                        <StackPanel>
+                            <TextBlock TextWrapping="Wrap"
+                                       Text="Legal"
+                                       Margin="4 0"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       FontSize="{StaticResource HeaderFontSize}"
+                                       FontFamily="{StaticResource VazirFont}"
+                                       Foreground="#FFBFBFBF" />
+                            <TextBlock FontSize="{StaticResource DefaultFontSize}"
+                                       FontFamily="{StaticResource VazirFont}"
+                                       TextWrapping="Wrap"
+                                       Margin="14 6 6 6">
+                            This application is in no way affiliated with, authorized, maintained, sponsored or endorsed by Instagram or any of its affiliates or subsidiaries.<LineBreak />This is an independent and unofficial application.
+                            </TextBlock>
+                        </StackPanel>
+
+
+                        <Rectangle Fill="#FF363636"
+                                   Height="1.5"
+                                   Margin="15 2.5"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch" />
+                        
+                        <StackPanel>
+                            <TextBlock x:Name="AboutText" TextWrapping="Wrap"
+                                       Text="About"
+                                       Margin="4 8 4 4"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       FontSize="{StaticResource HeaderFontSize}"
+                                       FontFamily="{StaticResource VazirFont}"
+                                       Foreground="#FFBFBFBF" />
+                            <TextBlock FontSize="{StaticResource DefaultFontSize}"
+                                       FontFamily="{StaticResource VazirFont}"
+                                       TextWrapping="Wrap"
+                                       Margin="14 6 6 6">
+                             Minista is an simple unofficial Instagram client for Windows 10 devices.
+                            
+                            <LineBreak />Supports almost everything that Instagram Android has!
+                            <LineBreak />All missing features will add it in the future releases.
+                            </TextBlock>
+
+                            <TextBlock FontSize="{StaticResource DefaultFontSize}"
+                                       FontFamily="{StaticResource VazirFont}"
+                                       TextWrapping="Wrap"
+                                       Margin="10 6 6 6">
+                                <Run FontSize="{StaticResource MediumFontSize}"
+                                     Foreground="#FFADADAD">Minista in social networks</Run>
+                            <LineBreak />
+                                Instagram: <Hyperlink Click="HyperlinkClick">https://www.instagram.com/MinistaApp</Hyperlink>
+                            <LineBreak />
+                                Telegram Channel: <Hyperlink Click="HyperlinkClick">https://t.me/MinistaApp</Hyperlink>
+                            </TextBlock>
+                        </StackPanel>
+
+
+
+                        <Rectangle Fill="#FF363636"
+                                   Height="1.5"
+                                   Margin="15 2.5"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch" />
+                        <StackPanel>
+
+                            <TextBlock FontSize="{StaticResource DefaultFontSize}"
+                                       FontFamily="{StaticResource VazirFont}"
+                                       TextWrapping="Wrap"
+                                       Margin="10 6 6 6">
+                                <Run FontSize="{StaticResource MediumFontSize}"
+                                     Foreground="#FFADADAD">Donate if you like Minista:</Run>
+                            <LineBreak />
+                                PayPal: <Hyperlink Click="HyperlinkClick">https://www.paypal.me/rmt4006</Hyperlink>
+                            <LineBreak />
+                                ZarinPal(For Iranians): <Hyperlink Click="HyperlinkClick">https://zarinp.al/ramtin</Hyperlink>
+                            </TextBlock>
+                        </StackPanel>
+
+
+
+                        <Rectangle Fill="#FF363636"
+                                   Height="1.5"
+                                   Margin="15 2.5"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch" />
+                        <StackPanel>
+                            <TextBlock TextWrapping="Wrap"
+                                       Text="Credit"
+                                       Margin="4 8 4 4"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       FontSize="{StaticResource HeaderFontSize}"
+                                       FontFamily="{StaticResource VazirFont}"
+                                       Foreground="#FFBFBFBF" />
+                            <TextBlock FontSize="{StaticResource DefaultFontSize}"
+                                       FontFamily="{StaticResource VazirFont}"
+                                       TextWrapping="Wrap"
+                                       Margin="14 6 6 6">
+                             Developer: Nasrollah Jokar [Ramtin] [ <Hyperlink Click="HyperlinkClick">ramtinak@live.com</Hyperlink> | <Hyperlink Click="HyperlinkClick">https://t.me/ramtinak</Hyperlink> ]
+                            <LineBreak />
+                            <LineBreak />Logo Designer: Mohammad Amin Lorzamani [ <Hyperlink Click="HyperlinkClick">https://www.instagram.com/m.a.lorzamani</Hyperlink> ]
+                            <LineBreak />[ Spacial thanks to M.A Lorzamani for all his help, tests and ideas that I couldn't develop this application without him. ]
+                            </TextBlock>
+                        </StackPanel>
+
+
+
+                        <Rectangle Fill="#FF363636"
+                                   Height="1.5"
+                                   Margin="15 2.5"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch" />
+
+                        <StackPanel>
+                            <TextBlock TextWrapping="Wrap"
+                                       Text="Special Thanks to"
+                                       Margin="4 8 4 4"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       FontSize="{StaticResource HeaderFontSize}"
+                                       FontFamily="{StaticResource VazirFont}"
+                                       Foreground="#FFBFBFBF" />
+                            <TextBlock FontSize="{StaticResource DefaultFontSize}"
+                                       FontFamily="{StaticResource VazirFont}"
+                                       TextWrapping="Wrap"
+                                       Margin="14 6 6 6">
+                                <Run FontSize="{StaticResource MediumFontSize}"
+                                     Foreground="#FFADADAD">Main testers:</Run>
+                                <LineBreak />
+                                Majid Jafari [ <Hyperlink Click="HyperlinkClick">https://www.instagram.com/majid.jafari1994</Hyperlink> ]
+                                <LineBreak />
+                                Atiyeh [ <Hyperlink Click="HyperlinkClick">https://www.instagram.com/atquarius</Hyperlink> ]
+                                <LineBreak />
+                                Haniyeh Ghasemi [ <Hyperlink Click="HyperlinkClick">https://www.instagram.com/haniye_ghasemii</Hyperlink> ]
+
+                                <LineBreak />
+                                <LineBreak />
+                                Special Thanks to all other testers.
+                                <LineBreak />
+                                <LineBreak />
+                                Special Thanks to Ali Noshahi for his help in adding story's inner items code.
+                           
+                            <LineBreak />
+                                <LineBreak />
+                                <Run FontSize="{StaticResource MediumFontSize}"
+                                     Foreground="#FFADADAD">Libraries</Run>
+                            <LineBreak />
+                                <Hyperlink Click="HyperlinkX2Click">Microsoft Uwp Toolkit</Hyperlink>
+                            <LineBreak />
+                                <Hyperlink Click="HyperlinkX2Click">Newtonsoft.Json</Hyperlink>
+                            <LineBreak />
+                                <Hyperlink Click="HyperlinkX2Click">WinUI Controls</Hyperlink>
+                            <LineBreak />
+                                <Hyperlink Click="HyperlinkX2Click">Win2d.Uwp</Hyperlink>
+                            <LineBreak />
+                                <Hyperlink Click="HyperlinkX2Click">XamlAnimatedGif</Hyperlink>
+                            <LineBreak />
+                                <Hyperlink Click="HyperlinkX2Click">Telerik UI for UWP</Hyperlink>
+                            <LineBreak />
+
+
+                            </TextBlock>
+                        </StackPanel>
+
+
+                    </StackPanel>
+                </uiControls:Expander>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

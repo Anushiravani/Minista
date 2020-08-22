@@ -1,0 +1,68 @@
+﻿<UserControl
+    x:Class="Minista.ContentDialogs.Uc.UserDialogUc"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Minista.ContentDialogs.Uc"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+             d:DesignHeight="150"
+             d:DesignWidth="85">
+
+    <Grid Height="150"
+          Width="85">
+        <Grid Margin="5 0 5 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <!--<Ellipse Grid.Column="0"
+                     Height="60"
+                     Width="60"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Center"
+                     StrokeThickness="0">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="{Binding ProfilePicture}" />
+                </Ellipse.Fill>
+            </Ellipse>-->
+
+            <Grid x:Name="UsersGrid"
+                  Width="60"
+                  Height="60" />
+            <Grid Grid.Row="1"
+                  VerticalAlignment="Center"
+                  Margin="0 4 0 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock Foreground="{StaticResource DefaultForegroundColor}"
+                           FontFamily="{StaticResource VazirFont}"
+                           FontSize="{StaticResource TinyFontSize}"
+                           Text="{Binding Title}"
+                           TextWrapping="Wrap"
+                           HorizontalAlignment="Center"
+                           TextAlignment="Center"
+                           Margin="3" />
+
+                <TextBlock Foreground="{StaticResource DefaultInnerForegroundColor}"
+                           FontFamily="{StaticResource VazirFont}"
+                           FontSize="{StaticResource TinyTinyFontSize}"
+                           Grid.Row="1"
+                           HorizontalAlignment="Left"
+                           Text="{Binding FullName}"
+                           Margin="3" />
+            </Grid>
+
+            <!--<Button Content="{Binding Selected, Mode=TwoWay, Converter={StaticResource UsersDialogBoolToStringConverter}}"
+                            Grid.Column="3"
+                            Margin="5"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Stretch"
+                            Click="ButtonClick"
+                            Background="{Binding Selected, Mode=TwoWay, Converter={StaticResource UsersDialogBoolToColorConverter}}" />-->
+        </Grid>
+
+    </Grid>
+</UserControl>

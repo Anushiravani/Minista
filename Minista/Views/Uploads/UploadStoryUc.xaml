@@ -1,0 +1,321 @@
+﻿<UserControl x:Class="Minista.Views.Uploads.UploadStoryUc"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:Minista.Views.Uploads"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+             xmlns:controls="using:Minista.UI.Controls"
+             mc:Ignorable="d"
+             xmlns:converters="using:Minista.Converters"
+             xmlns:controlsx="using:Microsoft.Toolkit.Uwp.UI.Controls"
+             xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+             xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+             xmlns:behaviors="using:Minista.Behaviors"
+             xmlns:vm="using:Minista.ViewModels.Posts"
+             xmlns:loading="using:Minista.UserControls">
+
+    <Grid Background="{StaticResource DefaultBackgroundColor}">
+        <Grid x:Name="MainWorkSapce">
+
+            <Grid x:Name="MediaElementGrid"
+                  Visibility="Collapsed">
+
+                <MediaElement x:Name="ME"
+                              Volume=".7"
+                              AreTransportControlsEnabled="True"
+                              AutoPlay="False"
+                              MediaOpened="MEMediaOpened">
+                    <MediaElement.TransportControls>
+                        <MediaTransportControls IsCompact="True"
+                                                IsPlaybackRateButtonVisible="False"
+                                                IsZoomButtonVisible="True"
+                                                IsFullWindowButtonVisible="False" />
+                    </MediaElement.TransportControls>
+                </MediaElement>
+                <Grid Background="{ThemeResource SystemControlPageBackgroundAltMediumBrush}"
+                      VerticalAlignment="Bottom"
+                      Margin="0 0 0 42">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <AppBarButton ToolTipService.ToolTip="Trim video"
+                                  Visibility="Visible"
+                                  HorizontalAlignment="Stretch"
+                                  Foreground="{StaticResource DefaultForegroundColor}"
+                                  Width="60"
+                                  Margin="2"
+                                  FontFamily="{StaticResource VazirFont}"
+                                  FontSize="{StaticResource DefaultFontSize}"
+                                  Style="{StaticResource NotCenteredAppBarButton}"
+                                  Background="Transparent">
+                        <Grid>
+                            <TextBlock   Foreground="White"
+                                         VerticalAlignment="Center"
+                                         HorizontalAlignment="Center"
+                                         FontFamily="{StaticResource MaterialSymbolFont}"
+                                         FontSize="{StaticResource BigBigFontSize}"
+                                         TextWrapping="NoWrap"
+                                         Margin="3"
+                                         Text="" />
+
+                            <Grid Background="Moccasin"
+                                  Opacity="0" />
+                        </Grid>
+                    </AppBarButton>
+                    <TextBlock x:Name="StartTimeText"
+                               Text="Start time: 00"
+                               FontFamily="{StaticResource VazirFont}"
+                               FontSize="{StaticResource TinyFontSize}"
+                               Margin="5"
+                               Grid.Column="1"
+                               Foreground="{StaticResource DefaultInnerForegroundColor}"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Bottom"
+                               TextAlignment="Center" />
+                    <TextBlock x:Name="EndTimeText"
+                               Text="End time: 00"
+                               FontFamily="{StaticResource VazirFont}"
+                               FontSize="{StaticResource TinyFontSize}"
+                               Margin="5"
+                               Grid.Column="1"
+                               Foreground="{StaticResource DefaultInnerForegroundColor}"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Bottom"
+                               TextAlignment="Center" />
+                    <controlsx:RangeSelector x:Name="TrimControl"
+                                             Grid.Column="1"
+                                             Margin="0 0 0 15"
+                                             StepFrequency="1"
+                                             ValueChanged="TrimControlValueChanged" />
+                    <Grid Grid.Column="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock TextWrapping="Wrap"
+                                   Margin="4"
+                                   Text="Quality:"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   FontSize="{StaticResource DefaultFontSize}"
+                                   FontFamily="{StaticResource VazirFont}" />
+                        <ComboBox x:Name="QualityCombo"
+                                  Grid.Column="1"
+                                  Margin="4"
+                                  BorderThickness=".8"
+                                  VerticalAlignment="Center"
+                                  Background="Transparent"
+                                  FontSize="{StaticResource DefaultFontSize}"
+                                  FontFamily="{StaticResource VazirFont}"
+                                  Loaded="QualityComboLoaded">
+                            <ComboBoxItem Content="Auto"
+                                          FontSize="{StaticResource DefaultFontSize}"
+                                          FontFamily="{StaticResource VazirFont}" />
+                            <ComboBoxItem Content="HD1080p"
+                                          FontSize="{StaticResource DefaultFontSize}"
+                                          FontFamily="{StaticResource VazirFont}" />
+                            <ComboBoxItem Content="HD720p"
+                                          FontSize="{StaticResource DefaultFontSize}"
+                                          FontFamily="{StaticResource VazirFont}" />
+                            <ComboBoxItem Content="Ntsc"
+                                          FontSize="{StaticResource DefaultFontSize}"
+                                          FontFamily="{StaticResource VazirFont}" />
+                            <ComboBoxItem Content="Pal"
+                                          FontSize="{StaticResource DefaultFontSize}"
+                                          FontFamily="{StaticResource VazirFont}" />
+                            <ComboBoxItem Content="Qvga"
+                                          FontSize="{StaticResource DefaultFontSize}"
+                                          FontFamily="{StaticResource VazirFont}" />
+                            <ComboBoxItem Content="Vga"
+                                          FontSize="{StaticResource DefaultFontSize}"
+                                          FontFamily="{StaticResource VazirFont}" />
+
+                        </ComboBox>
+                        <!--<Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition  Width="1.2"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>-->
+                        <!--<ToggleButton x:Name="ToggleSnapShot"
+                                      Content=""
+                                      Checked="ToggleSnapShotChecked"
+                                      Background="Transparent"
+                                      FontFamily="{StaticResource MaterialSymbolFont}"
+                                      FontSize="{StaticResource BigFontSize}"
+                                      HorizontalAlignment="Right"
+                                      VerticalAlignment="Center"
+                                      ToolTipService.ToolTip="Take snapshot for current frame as thumbnail"
+                                      Width="52"
+                                      Height="48"
+                                      Click="ToggleSnapShotClick"/>
+                        <Rectangle Fill="#FF363636"
+                                   Grid.Column="1"
+                                   Width="1.1" Margin="0 8"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Stretch" />
+                        <ToggleButton x:Name="ToggleMuteAudio"
+                                      Content=""
+                                      Grid.Column="2"
+                                      Background="Transparent"
+                                      FontFamily="{StaticResource MaterialSymbolFont}"
+                                      FontSize="{StaticResource BigFontSize}"
+                                      HorizontalAlignment="Right"
+                                      VerticalAlignment="Center"
+                                      ToolTipService.ToolTip="Mute sound"
+                                      Width="52"
+                                      Height="48"
+                                      Checked="ToggleMuteAudioChecked"
+                                      Unchecked="ToggleMuteAudioUnchecked"/>-->
+
+                    </Grid>
+                </Grid>
+            </Grid>
+            <canvas:CanvasControl x:Name="MainCanvas"
+                                  Width="200"
+                                  Height="200"
+                                  VerticalAlignment="Center"
+                                  HorizontalAlignment="Center"
+                                  Draw="MainCanvas_Draw" />
+            <Grid x:Name="CropGrid"
+                  Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <controls:ImageCropper x:Name="ImageCropper"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch"
+                                       Background="Transparent" />
+
+                <Grid Grid.Row="1"
+                      Height="65">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Fill="#FF363636"
+                               Grid.ColumnSpan="3"
+                               Height="1.5"
+                               Margin="15 5"
+                               HorizontalAlignment="Stretch"
+                               VerticalAlignment="Stretch" />
+                    <AppBarButton x:Name="CancelButton"
+                                  ToolTipService.ToolTip="Cancel crop"
+                                  Visibility="Collapsed"
+                                  HorizontalAlignment="Stretch"
+                                  Foreground="{StaticResource DefaultForegroundColor}"
+                                  Grid.Row="1"
+                                  Width="60"
+                                  Margin="2"
+                                  FontFamily="{StaticResource VazirFont}"
+                                  FontSize="{StaticResource DefaultFontSize}"
+                                  Click="CancelButtonClick"
+                                  Style="{StaticResource NotCenteredAppBarButton}"
+                                  Background="#FF1B1B1B">
+                        <interactivity:Interaction.Behaviors>
+                            <behaviors:PointersEvent />
+                        </interactivity:Interaction.Behaviors>
+                        <Grid>
+                            <TextBlock   Foreground="White"
+                                         VerticalAlignment="Center"
+                                         HorizontalAlignment="Center"
+                                         FontFamily="{StaticResource MaterialSymbolFont}"
+                                         FontSize="{StaticResource BigBigFontSize}"
+                                         TextWrapping="NoWrap"
+                                         Margin="3"
+                                         Text="" />
+
+                            <Grid Background="SaddleBrown"
+                                  Opacity="0" />
+                        </Grid>
+                    </AppBarButton>
+
+                    <Slider x:Name="AspectRatioSlider"
+                            VerticalAlignment="Center"
+                            Grid.Column="1"
+                            Grid.Row="1"
+                            MaxWidth="150"
+                            Margin="8"
+                            LargeChange="0.05"
+                            Maximum="0.9"
+                            Minimum="0.50"
+                            SmallChange="0.05"
+                            StepFrequency="0.05"
+                            Value="0.62"
+                            ValueChanged="AspectRatioSliderValueChanged" />
+
+                    <AppBarButton x:Name="CropButton"
+                                  ToolTipService.ToolTip="Crop your image"
+                                  HorizontalAlignment="Stretch"
+                                  Foreground="{StaticResource DefaultForegroundColor}"
+                                  Grid.Column="2"
+                                  Grid.Row="1"
+                                  Width="60"
+                                  Margin="2"
+                                  FontFamily="{StaticResource VazirFont}"
+                                  FontSize="{StaticResource DefaultFontSize}"
+                                  Click="CropButtonClick"
+                                  Style="{StaticResource NotCenteredAppBarButton}"
+                                  Background="#FF1B1B1B">
+                        <interactivity:Interaction.Behaviors>
+                            <behaviors:PointersEvent />
+                        </interactivity:Interaction.Behaviors>
+                        <Grid>
+                            <TextBlock   Foreground="White"
+                                         Grid.Column="1"
+                                         VerticalAlignment="Center"
+                                         HorizontalAlignment="Center"
+                                         FontFamily="{StaticResource MaterialSymbolFont}"
+                                         FontSize="{StaticResource BigBigFontSize}"
+                                         TextWrapping="NoWrap"
+                                         Margin="3"
+                                         Text="" />
+
+                            <Grid Background="SaddleBrown"
+                                  Opacity="0" />
+                        </Grid>
+                    </AppBarButton>
+
+                </Grid>
+
+            </Grid>
+
+
+            <loading:LoadingUc x:Name="LoadingUc"
+                               Visibility="Collapsed"
+                               Grid.ColumnSpan="5"
+                               Grid.RowSpan="5"
+                               VerticalAlignment="Center" />
+            <!-- />
+                <Grid Background="Black" Opacity="0"
+                          Tapped="VideoViewTapped"/>-->
+        </Grid>
+        <Button x:Name="VideoButton"
+                Background="{x:Null}"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                Margin="10 25 0 0"
+                Visibility="Collapsed">
+            <Grid>
+
+                <Ellipse Width="30"
+                         Height="30"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         Fill="#FF333333" />
+                <FontIcon FontFamily="{StaticResource MaterialSymbolFont}"
+                          FontSize="{StaticResource HeaderFontSize}"
+                          Foreground="White"
+                          Glyph="" />
+            </Grid>
+        </Button>
+    </Grid>
+</UserControl>

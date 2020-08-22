@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="Minista.Views.TV.TVPlayer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Minista"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+      xmlns:tv="using:Minista.Views.TV">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <MediaElement x:Name="ME"
+                      x:FieldModifier="public"
+                      AreTransportControlsEnabled="True"
+                      AutoPlay="False"
+                      MediaEnded="MEMediaEnded">
+            <MediaElement.TransportControls>
+                <local:TVCustomMTC x:Name="CustomMTC"
+                                                    x:FieldModifier="public" 
+                                   Loaded="CustomMTC_Loaded"/>
+                <!--IsStopButtonVisible="False"
+                    IsCompact="False"
+                    IsFullWindowButtonVisible="False"
+                    IsFullWindowEnabled="False"-->
+            </MediaElement.TransportControls>
+        </MediaElement>
+
+        <tv:TVMediaComments x:Name="MediaComments"
+                            x:FieldModifier="public"
+                            Grid.Row="1"
+                            MaxHeight="350"
+                            Visibility="Collapsed" />
+        <tv:FooterView x:Name="FooterView"
+                            x:FieldModifier="public"
+                            Grid.Row="1"
+                            MaxHeight="350"
+                            Visibility="Collapsed" />
+    </Grid>
+</Page>

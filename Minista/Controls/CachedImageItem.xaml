@@ -1,0 +1,31 @@
+﻿<UserControl
+    x:Class="Minista.Controls.CachedImageItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Minista.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+             mc:Ignorable="d"
+             d:DesignHeight="65"
+             d:DesignWidth="65">
+
+    <Grid>
+        <controls:ImageEx x:Name="IMGEX"
+                          MinHeight="65"
+                          MinWidth="65"
+                          Stretch="UniformToFill"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center">
+            <!--<controls:ImageEx.Source>
+                <BitmapImage UriSource="{Binding Images[0].Uri, Mode=OneWay}" />
+                -->
+            <!--<ImageBrush Stretch="Fill">
+                    <ImageBrush.ImageSource>-->
+            <!--</ImageBrush.ImageSource>
+                </ImageBrush>-->
+            <!--
+            </controls:ImageEx.Source>-->
+        </controls:ImageEx>
+    </Grid>
+</UserControl>

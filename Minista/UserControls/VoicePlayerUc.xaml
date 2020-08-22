@@ -1,0 +1,125 @@
+﻿<UserControl
+    x:Class="Minista.UserControls.VoicePlayerUc"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Minista.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Height="52">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <ToggleButton x:Name="PlayPauseButton"
+                          Style="{StaticResource CenterHeaderToggleButtonWithoutIconStyle}"
+                          Background="Transparent"
+                          Height="48"
+                          Foreground="{StaticResource DefaultForegroundColor}"
+                          Width="48"
+                          Tag=""
+                          VerticalAlignment="Center"
+                          FontSize="{StaticResource DefaultFontSize}"
+                          FontFamily="{StaticResource VazirFont}"
+                          Margin="2 0"
+                          Click="PlayPauseButtonClick" />
+            <Rectangle Fill="#FF363636"
+                       Width="1.5"
+                       Grid.Column="1"
+                       Margin="1 8"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Stretch" />
+            <TextBlock x:Name="txtInfo"
+                       Grid.Column="2"
+                       Text=""
+                       Foreground="{StaticResource DefaultForegroundColor}"
+                       FontFamily="{StaticResource VazirFont}"
+                       FontSize="{StaticResource TinyLargeFontSize}"
+                       TextWrapping="NoWrap"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="5 4" />
+            <Rectangle Fill="#FF363636"
+                       Width="1.5"
+                       Grid.Column="3"
+                       Margin="1 8"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Stretch" />
+            <TextBlock x:Name="txtTime"
+                       Grid.Column="4"
+                       Text="00:00"
+                       Foreground="{StaticResource DefaultForegroundColor}"
+                       FontFamily="{StaticResource VazirFont}"
+                       FontSize="{StaticResource TinyLargeFontSize}"
+                       TextWrapping="NoWrap"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="5 4" />
+            <Rectangle Fill="#FF363636"
+                       Width="1.5"
+                       Grid.Column="5"
+                       Margin="1 8"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Stretch" />
+
+            <ToggleButton x:Name="FasterModeButton"
+                          Foreground="{StaticResource DefaultForegroundColor}"
+                          Grid.Column="6"
+                          Style="{StaticResource HeaderToggleButtonRemovedIconStyle}"
+                          Background="Transparent"
+                          Height="48"
+                          Width="48"
+                          Content="2x"
+                          VerticalAlignment="Center"
+                          HorizontalContentAlignment="Center"
+                          FontSize="{StaticResource DefaultFontSize}"
+                          FontFamily="{StaticResource VazirFont}"
+                          Margin="2 0"
+                          Click="FasterModeButtonClick" />
+            <Rectangle Fill="#FF363636"
+                       Width="1.5"
+                       Grid.Column="7"
+                       Margin="1 8"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Stretch" />
+            <ToggleButton x:Name="HideButton"
+                          Foreground="{StaticResource DefaultForegroundColor}"
+                          Grid.Column="8"
+                          Style="{StaticResource CenterHeaderToggleButtonWithoutIconStyle}"
+                          Background="Transparent"
+                          Height="48"
+                          Width="48"
+                          Tag=""
+                          VerticalAlignment="Center"
+                          HorizontalContentAlignment="Center"
+                          FontSize="{StaticResource DefaultFontSize}"
+                          FontFamily="{StaticResource VazirFont}"
+                          Margin="2 0"
+                          Click="HideButtonClick" />
+
+        </Grid>
+        <Rectangle Fill="#FF363636"
+                   Grid.Row="1"
+                   Height="1.5"
+                   Margin="15 2.5"
+                   HorizontalAlignment="Stretch"
+                   VerticalAlignment="Stretch" />
+    </Grid>
+</UserControl>

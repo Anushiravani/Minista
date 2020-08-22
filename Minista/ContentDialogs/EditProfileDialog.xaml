@@ -1,0 +1,434 @@
+﻿<ContentDialog x:Class="Minista.ContentDialogs.EditProfileDialog"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:local="using:Minista.ContentDialogs"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+               xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+               xmlns:behaviors="using:Minista.Behaviors"
+               mc:Ignorable="d"
+               Background="{x:Null}"
+               BorderBrush="Transparent"
+               BorderThickness="0">
+    <Border CornerRadius="5">
+        <Grid Background="#FF1B1B1B"
+              CornerRadius="5"
+              BorderBrush="{StaticResource DefaultBackgroundColor}"
+              BorderThickness=".8"
+              Width="360"
+              Height="480">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <AppBarButton x:Name="ExitButton"
+                              Foreground="{StaticResource DefaultForegroundColor}"
+                              Content=""
+                              Margin="2"
+                              FontFamily="{StaticResource MaterialSymbolFont}"
+                              FontSize="{StaticResource BigFontSize}"
+                              Click="ExitButtonClick">
+                    <interactivity:Interaction.Behaviors>
+                        <behaviors:PointersEvent />
+                    </interactivity:Interaction.Behaviors>
+                </AppBarButton>
+                <TextBlock Text="Edit Profile"
+                           Grid.Column="1"
+                           FontFamily="{StaticResource VazirFont}"
+                           FontSize="{StaticResource DefaultFontSize}"
+                           Foreground="{StaticResource DefaultForegroundColor}"
+                           VerticalAlignment="Center"
+                           Margin="10 0" />
+                <AppBarButton x:Name="OkButton"
+                              Foreground="{StaticResource DefaultForegroundColor}"
+                              Grid.Column="2"
+                              Content=""
+                              Margin="2"
+                              FontFamily="{StaticResource MaterialSymbolFont}"
+                              FontSize="{StaticResource BigFontSize}"
+                              Click="OkButtonClick">
+                    <interactivity:Interaction.Behaviors>
+                        <behaviors:PointersEvent />
+                    </interactivity:Interaction.Behaviors>
+                </AppBarButton>
+            </Grid>
+            <Rectangle Fill="#FF363636"
+                       Height="1.2"
+                       MinWidth="250"
+                       MaxWidth="320"
+                       Grid.Row="1"
+                       Margin="5 2"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Stretch" />
+            <ScrollViewer Grid.Row="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Ellipse x:Name="UserImage"
+                                 Height="95"
+                                 Width="95"
+                                 Margin="5 5"
+                                 Stroke="#FF3C2866"
+                                 StrokeThickness="2" />
+
+                        <Button x:Name="ChooseButton"
+                                Foreground="#FF07B8FB"
+                                Content="Change Profile Photo"
+                                Grid.Row="1"
+                                Margin="2"
+                                HorizontalAlignment="Center"
+                                FontFamily="{StaticResource VazirFont}"
+                                FontSize="{StaticResource DefaultFontSize}"
+                                Click="ExitButtonClick"
+                                Background="Transparent">
+                            <interactivity:Interaction.Behaviors>
+                                <behaviors:PointersEvent />
+                            </interactivity:Interaction.Behaviors>
+                            <Button.Flyout>
+                                <Flyout Placement="Bottom">
+                                    <Grid Background="#FF1B1B1B"
+                                          Width="250">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Button x:Name="SelectFromGalleryButton"
+                                                Foreground="#FF07B8FB"
+                                                Content="Change Profile Picture"
+                                                Grid.Row="1"
+                                                Margin="2"
+                                                HorizontalAlignment="Center"
+                                                FontFamily="{StaticResource VazirFont}"
+                                                FontSize="{StaticResource DefaultFontSize}"
+                                                Click="SelectFromGalleryButtonClick"
+                                                Background="Transparent" />
+                                    </Grid>
+                                </Flyout>
+                            </Button.Flyout>
+                        </Button>
+
+                    </Grid>
+                    <Rectangle Fill="#FF363636"
+                               Height="1.2"
+                               MinWidth="250"
+                               MaxWidth="320"
+                               Grid.Row="1"
+                               Margin="5 2"
+                               HorizontalAlignment="Stretch"
+                               VerticalAlignment="Stretch" />
+
+                    <Grid Grid.Row="3"
+                          Margin="0 10 10 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Name"
+                                       FontFamily="{StaticResource VazirFont}"
+                                       FontSize="{StaticResource DefaultFontSize}"
+                                       VerticalAlignment="Center"
+                                       Margin="10 0"
+                                       Foreground="{StaticResource DefaultForegroundColor}" />
+
+                            <TextBox x:Name="NameText"
+                                     x:FieldModifier="public"
+                                     FontFamily="{StaticResource VazirFont}"
+                                     FontSize="{StaticResource DefaultFontSize}"
+                                     Foreground="{StaticResource DefaultForegroundColor}"
+                                     Grid.Row="1"
+                                     BorderThickness="0"
+                                     HorizontalAlignment="Stretch"
+                                     IsSpellCheckEnabled="False"
+                                     Background="Transparent"
+                                     Margin="10 0"
+                                     PlaceholderText="Name"
+                                     Style="{StaticResource TextBoxCenterWithBackgroundChange}" />
+
+                            <Rectangle Fill="#FF363636"
+                                       Height="1.2"
+                                       MinWidth="250"
+                                       MaxWidth="320"
+                                       Grid.Row="3"
+                                       Margin="5 2"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch" />
+                        </Grid>
+                        <Grid Grid.Row="1"
+                              Margin="3">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Username"
+                                       FontFamily="{StaticResource VazirFont}"
+                                       FontSize="{StaticResource DefaultFontSize}"
+                                       VerticalAlignment="Center"
+                                       Margin="10 0"
+                                       Foreground="{StaticResource DefaultForegroundColor}" />
+
+                            <TextBox x:Name="UsernameText"
+                                     x:FieldModifier="public"
+                                     FontFamily="{StaticResource VazirFont}"
+                                     FontSize="{StaticResource DefaultFontSize}"
+                                     Foreground="{StaticResource DefaultForegroundColor}"
+                                     Grid.Row="1"
+                                     BorderThickness="0"
+                                     HorizontalAlignment="Stretch"
+                                     IsSpellCheckEnabled="False"
+                                     Background="Transparent"
+                                     Margin="10 0"
+                                     PlaceholderText="Username"
+                                     Style="{StaticResource TextBoxCenterWithBackgroundChange}" />
+
+                            <Rectangle Fill="#FF363636"
+                                       Height="1.2"
+                                       MinWidth="250"
+                                       MaxWidth="320"
+                                       Grid.Row="3"
+                                       Margin="5 2"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch" />
+                        </Grid>
+                        <Grid Grid.Row="2"
+                              Margin="3">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Website"
+                                       FontFamily="{StaticResource VazirFont}"
+                                       FontSize="{StaticResource DefaultFontSize}"
+                                       VerticalAlignment="Center"
+                                       Margin="10 0"
+                                       Foreground="{StaticResource DefaultForegroundColor}" />
+
+                            <TextBox x:Name="WebsiteText"
+                                     x:FieldModifier="public"
+                                     FontFamily="{StaticResource VazirFont}"
+                                     FontSize="{StaticResource DefaultFontSize}"
+                                     Foreground="{StaticResource DefaultForegroundColor}"
+                                     Grid.Row="1"
+                                     BorderThickness="0"
+                                     HorizontalAlignment="Stretch"
+                                     IsSpellCheckEnabled="False"
+                                     InputScope="Url"
+                                     Background="Transparent"
+                                     Margin="10 0"
+                                     PlaceholderText="Website"
+                                     Style="{StaticResource TextBoxCenterWithBackgroundChange}" />
+                            <Rectangle Fill="#FF363636"
+                                       Height="1.2"
+                                       MinWidth="250"
+                                       MaxWidth="320"
+                                       Grid.Row="3"
+                                       Margin="5 2"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch" />
+                        </Grid>
+                        <Grid Grid.Row="3"
+                              Margin="3">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Bio"
+                                       FontFamily="{StaticResource VazirFont}"
+                                       FontSize="{StaticResource DefaultFontSize}"
+                                       VerticalAlignment="Center"
+                                       Margin="10 0"
+                                       Foreground="{StaticResource DefaultForegroundColor}" />
+
+                            <TextBox x:Name="BioText"
+                                     x:FieldModifier="public"
+                                     AcceptsReturn="True"
+                                     FontFamily="{StaticResource VazirFont}"
+                                     FontSize="{StaticResource DefaultFontSize}"
+                                     Foreground="{StaticResource DefaultForegroundColor}"
+                                     Grid.Row="1"
+                                     BorderThickness="0"
+                                     HorizontalAlignment="Stretch"
+                                     IsSpellCheckEnabled="False"
+                                     Background="Transparent"
+                                     Margin="10 0"
+                                     PlaceholderText="Bio"
+                                     Style="{StaticResource TextBoxCenterWithBackgroundChange}" />
+                            <Rectangle Fill="#FF363636"
+                                       Height="1.2"
+                                       MinWidth="250"
+                                       MaxWidth="320"
+                                       Grid.Row="3"
+                                       Margin="5 2"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch" />
+                        </Grid>
+                        <TextBlock Text="Private information"
+                                   Grid.Row="4"
+                                   FontFamily="{StaticResource VazirFont}"
+                                   FontSize="{StaticResource DefaultFontSize}"
+                                   Foreground="{StaticResource DefaultForegroundColor}"
+                                   VerticalAlignment="Center"
+                                   Margin="10 15" />
+                        <Grid Grid.Row="5"
+                              Margin="3"
+                              Visibility="Collapsed">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="E-mail address"
+                                       FontFamily="{StaticResource VazirFont}"
+                                       FontSize="{StaticResource DefaultFontSize}"
+                                       VerticalAlignment="Center"
+                                       Margin="10 0"
+                                       Foreground="{StaticResource DefaultForegroundColor}" />
+
+                            <TextBox x:Name="EmailText"
+                                     x:FieldModifier="public"
+                                     AcceptsReturn="True"
+                                     FontFamily="{StaticResource VazirFont}"
+                                     FontSize="{StaticResource DefaultFontSize}"
+                                     Foreground="{StaticResource DefaultForegroundColor}"
+                                     Grid.Row="1"
+                                     BorderThickness="0"
+                                     HorizontalAlignment="Stretch"
+                                     IsSpellCheckEnabled="False"
+                                     Background="Transparent"
+                                     Margin="10 0"
+                                     PlaceholderText="Enter your email address"
+                                     Style="{StaticResource TextBoxCenterWithBackgroundChange}" />
+                            <Rectangle Fill="#FF363636"
+                                       Height="1.2"
+                                       MinWidth="250"
+                                       MaxWidth="320"
+                                       Grid.Row="3"
+                                       Margin="5 2"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch" />
+                        </Grid>
+                        <Grid Grid.Row="6"
+                              Margin="3">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Phone number"
+                                       FontFamily="{StaticResource VazirFont}"
+                                       FontSize="{StaticResource DefaultFontSize}"
+                                       VerticalAlignment="Center"
+                                       Margin="10 0"
+                                       Foreground="{StaticResource DefaultForegroundColor}" />
+
+                            <TextBox x:Name="PhoneNumberText"
+                                     x:FieldModifier="public"
+                                     AcceptsReturn="True"
+                                     FontFamily="{StaticResource VazirFont}"
+                                     FontSize="{StaticResource DefaultFontSize}"
+                                     Foreground="{StaticResource DefaultForegroundColor}"
+                                     Grid.Row="1"
+                                     BorderThickness="0"
+                                     HorizontalAlignment="Stretch"
+                                     IsSpellCheckEnabled="False"
+                                     Background="Transparent"
+                                     Margin="10 0"
+                                     PlaceholderText="Enter your phone number"
+                                     Style="{StaticResource TextBoxCenterWithBackgroundChange}" />
+                            <Rectangle Fill="#FF363636"
+                                       Height="1.2"
+                                       MinWidth="250"
+                                       MaxWidth="320"
+                                       Grid.Row="3"
+                                       Margin="5 2"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch" />
+                        </Grid>
+
+                        <Grid Grid.Row="5"
+                              Margin="3">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Gender"
+                                       FontFamily="{StaticResource VazirFont}"
+                                       FontSize="{StaticResource DefaultFontSize}"
+                                       VerticalAlignment="Center"
+                                       Margin="10 0"
+                                       Foreground="{StaticResource DefaultForegroundColor}" />
+
+                            <ComboBox x:Name="GenderCombo"
+                                      BorderThickness="0"
+                                      Grid.Row="1"
+                                      Margin="10 5"
+                                      HorizontalAlignment="Stretch"
+                                      Background="Transparent"
+                                      Foreground="{StaticResource DefaultForegroundColor}">
+                                <ComboBoxItem Content="Not Specified"
+                                              Foreground="{StaticResource DefaultForegroundColor}" />
+                                <ComboBoxItem Content="Male"
+                                              Foreground="{StaticResource DefaultForegroundColor}" />
+                                <ComboBoxItem Content="Female"
+                                              Foreground="{StaticResource DefaultForegroundColor}" />
+                            </ComboBox>
+                        </Grid>
+
+                    </Grid>
+                </Grid>
+            </ScrollViewer>
+
+            <Grid x:Name="LoadingGrid"
+                  Grid.RowSpan="3"
+                  Background="#CC1F1F1F"
+                  Visibility="Collapsed">
+                <StackPanel VerticalAlignment="Center">
+                    <ProgressRing x:Name="LoadingPb"
+                                  Width="75"
+                                  Height="75"
+                                  IsActive="False"
+                                  Margin="0 15"
+                                  VerticalAlignment="Center"
+                                  Foreground="#D83E3E3E" />
+                </StackPanel>
+
+
+            </Grid>
+
+        </Grid>
+    </Border>
+</ContentDialog>

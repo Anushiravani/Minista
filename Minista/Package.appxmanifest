@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap2="http://schemas.microsoft.com/appx/manifest/uap/windows10/2" xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" xmlns:desktop4="http://schemas.microsoft.com/appx/manifest/desktop/windows10/4" IgnorableNamespaces="uap mp uap2 uap3 desktop4">
+  <Identity Name="64775ParseDevInc.Minista" Publisher="CN=ACB1F19A-470F-487C-A7C7-D50D6F38E651" Version="2.0.22.0" />
+  <mp:PhoneIdentity PhoneProductId="ab8b48e2-aae8-41ca-a146-d5922bff2c74" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>Minista - Better Experience with Instagram in Windows 10 Devices</DisplayName>
+    <PublisherDisplayName>Ramtin</PublisherDisplayName>
+    <Logo>Assets\Logos\StoreLogo.png</Logo>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Minista.App">
+      <uap:VisualElements DisplayName="Minista" Square150x150Logo="Assets\Logos\Square150x150Logo.png" Square44x44Logo="Assets\Logos\Square44x44Logo.png" Description="Minista is an unofficial Instagram client for Windows 10 Devices" BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Logos\Wide310x150Logo.png">
+        </uap:DefaultTile>
+        <!--<uap:SplashScreen  />-->
+        <uap:SplashScreen Image="Assets\Logos\SplashScreen.png" BackgroundColor="#232323" />
+      </uap:VisualElements>
+      <Extensions>
+        <uap3:Extension Category="windows.appUriHandler">
+          <uap3:AppUriHandler>
+            <uap3:Host Name="instagram.com" />
+            <uap3:Host Name="www.instagram.com" />
+          </uap3:AppUriHandler>
+        </uap3:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="ministasession">
+            <uap:DisplayName>Minista Session File</uap:DisplayName>
+            <uap:Logo>Assets\Images\512.png</uap:Logo>
+            <uap:InfoTip>Minista Session Details</uap:InfoTip>
+            <uap:EditFlags OpenIsSafe="true" />
+            <uap:SupportedFileTypes>
+              <uap:FileType>.mises</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="img">
+            <uap:DisplayName>Image</uap:DisplayName>
+            <uap:EditFlags OpenIsSafe="true" />
+            <uap:SupportedFileTypes>
+              <uap:FileType>.jpg</uap:FileType>
+              <uap:FileType>.jpeg</uap:FileType>
+              <uap:FileType>.png</uap:FileType>
+              <uap:FileType>.bmp</uap:FileType>
+            </uap:SupportedFileTypes>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.shareTarget">
+          <uap:ShareTarget Description="Share content">
+            <uap:SupportedFileTypes>
+              <uap:FileType>.jpg</uap:FileType>
+              <uap:FileType>.jpeg</uap:FileType>
+              <uap:FileType>.png</uap:FileType>
+              <uap:FileType>.bmp</uap:FileType>
+            </uap:SupportedFileTypes>
+            <uap:DataFormat>ApplicationLink</uap:DataFormat>
+            <uap:DataFormat>StorageItems</uap:DataFormat>
+            <uap:DataFormat>Bitmap</uap:DataFormat>
+            <uap:DataFormat>WebLink</uap:DataFormat>
+            <uap:DataFormat>Text</uap:DataFormat>
+          </uap:ShareTarget>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="ministatheme">
+            <uap:DisplayName>Minista Theme</uap:DisplayName>
+            <uap:SupportedFileTypes>
+              <uap:FileType>.minista-theme</uap:FileType>
+            </uap:SupportedFileTypes>
+            <uap:InfoTip>Minista Theme File</uap:InfoTip>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <Extension Category="windows.backgroundTasks" EntryPoint="MinistaBH.BackGBH">
+          <BackgroundTasks>
+            <Task Type="systemEvent" />
+          </BackgroundTasks>
+        </Extension>
+        <Extension Category="windows.backgroundTasks" EntryPoint="MinistaBH.NotifyQuickReplyTask">
+          <BackgroundTasks>
+            <Task Type="systemEvent"/>
+          </BackgroundTasks>
+        </Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <Capability Name="internetClientServer" />
+    <uap:Capability Name="picturesLibrary" />
+    <uap:Capability Name="musicLibrary" />
+    <uap:Capability Name="removableStorage" />
+    <uap:Capability Name="videosLibrary" />
+    <Capability Name="privateNetworkClientServer"/>
+    <uap3:Capability Name="userNotificationListener"/>
+    <DeviceCapability Name="microphone" />
+    <DeviceCapability Name="webcam" />
+  </Capabilities>
+</Package>

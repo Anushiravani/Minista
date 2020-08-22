@@ -7,9 +7,12 @@ It has Almost everything that real Instagram has. Other features will be availab
 
 ## Rules
 - Don't update any libraries from this project!!!! Working #Minista on Windows Mobiles depends on these libraries.
-- You should buy [InstagramApiSharp](https://github.com/ramtinak/InstagramApiSharp/issues/243) if you need it's source code. [Having problems with InstagramApiSharp is not my responsible if you don't got any subscription plan]
+- You should buy [InstagramApiSharp](https://github.com/ramtinak/InstagramApiSharp/issues/243) if you need it's source code. [Having problems with InstagramApiSharp is not my responsible if you don't got any subscription plan ]
 - Don't publish Minista with your name in Microsoft Store.
 
+## Donation
+Paypal: [Donate](https://www.paypal.me/rmt4006)
+ZarinPal [Fpr Iranian]: [Donate](https://zarinp.al/ramtin)
 
 ## Open source libraries
 - [InstagramApiSharp](https://github.com/ramtinak/InstagramApiSharp/issues/243)

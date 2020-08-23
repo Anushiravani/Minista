@@ -17,7 +17,9 @@ Paypal: [Donate](https://www.paypal.me/rmt4006)
 
 ZarinPal [For Iranian]: [Donate](https://zarinp.al/ramtin)
 
-## Open source libraries
+## Open source projects
+Minista is using these libraries/projects to keep features working.
+
 - [InstagramApiSharp](https://github.com/ramtinak/InstagramApiSharp/issues/243)
 - [NET Standard](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)
 - [Microsoft Uwp Toolkit](https://docs.microsoft.com/en-us/windows/communitytoolkit/)
